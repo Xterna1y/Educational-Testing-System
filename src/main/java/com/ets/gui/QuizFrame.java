@@ -12,7 +12,7 @@ import java.awt.CardLayout;
 import java.util.List;
 
 /**
- * Main quiz window. Displays questions and results only.
+ * Main quiz window using CardLayout to switch between questions and results.
  */
 public final class QuizFrame extends JFrame {
 
