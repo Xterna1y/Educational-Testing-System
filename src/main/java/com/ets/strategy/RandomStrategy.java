@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Randomly selects questions from the bank.
+ * Randomly shuffles and selects questions from the bank.
  */
 public final class RandomStrategy implements QuizStrategy {
 
