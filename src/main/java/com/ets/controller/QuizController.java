@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Controller for quiz flow. Bridges GUI and QuizService.
+ * Controls quiz flow between GUI and business logic.
+ * Tracks current question index and submitted answers.
  */
 public final class QuizController {
 
