@@ -12,8 +12,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+
 /**
- * Service layer containing core business logic for quiz operations.
+ * Core business logic for quiz operations.
+ * Creates quizzes, evaluates answers, and calculates results.
  */
 public final class QuizService {
 
