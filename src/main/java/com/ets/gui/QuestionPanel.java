@@ -15,7 +15,7 @@ import java.awt.GridLayout;
 import java.util.Enumeration;
 
 /**
- * Panel displaying a single quiz question with options.
+ * Displays a single quiz question with radio button options.
  */
 public final class QuestionPanel extends JPanel {
 
