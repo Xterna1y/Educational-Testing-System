@@ -6,7 +6,11 @@ import java.util.List;
 
 /**
  * Strategy interface for question selection algorithms.
- * Demonstrates the Strategy design pattern.
+ * Implementations define how questions are filtered or ordered.
+ *
+ * @see RandomStrategy
+ * @see DifficultyStrategy
+ * @see WeakTopicStrategy
  */
 public interface QuizStrategy {
 
