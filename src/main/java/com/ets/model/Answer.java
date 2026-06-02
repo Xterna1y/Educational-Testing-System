@@ -4,6 +4,7 @@ import java.util.Objects;
 
 /**
  * Represents a user's answer to a specific question.
+ * Links a selected option index to a question ID for evaluation.
  */
 public final class Answer {
 
