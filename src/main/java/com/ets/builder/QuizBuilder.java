@@ -7,6 +7,18 @@ import com.ets.model.Quiz;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+/**
+ * Builder for constructing immutable {@link Quiz} instances.
+ * Demonstrates the Builder design pattern for step-by-step quiz configuration.
+ *
+ * <p>Usage:
+ * <pre>
+ * Quiz quiz = new QuizBuilder()
+ *     .withTitle("Java Basics")
+ *     .addQuestion(q1)
+ *     .build();
+ * </pre>
+ */
 
 public final class QuizBuilder {
 
