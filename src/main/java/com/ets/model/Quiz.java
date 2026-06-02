@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Immutable quiz object built via QuizBuilder.
+ * Immutable quiz object built via {@link com.ets.builder.QuizBuilder}.
+ * Contains questions, time limit, and display preferences.
  */
 public final class Quiz {
 
