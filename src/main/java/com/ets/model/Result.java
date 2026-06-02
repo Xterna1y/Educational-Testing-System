@@ -5,6 +5,7 @@ import java.util.Objects;
 
 /**
  * Immutable result of a completed quiz attempt.
+ * Stores score, total points, and percentage for display.
  */
 public final class Result {
 
