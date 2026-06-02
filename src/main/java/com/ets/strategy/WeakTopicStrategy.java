@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 /**
- * Adaptive strategy that prioritizes weaker-performing categories.
- * Simplified: random selection for this implementation.
+ * Adaptive strategy for prioritizing weaker topic areas.
+ * Currently, implements random selection as a placeholder.
  */
 public final class WeakTopicStrategy implements QuizStrategy {
 
