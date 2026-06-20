@@ -67,8 +67,15 @@ public class DashboardFrame extends JFrame {
         buttonRow.setBackground(CARD_BG);
         buttonRow.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        buttonRow.add(buildActionButton("📝  Take Quiz",   ACCENT));
-        buttonRow.add(buildActionButton("📊  My Results",  Color.GREEN));
+        JButton takeQuizBtn = buildActionButton("📝  Take Quiz", ACCENT);
+        takeQuizBtn.addActionListener(e -> openQuizSelectionFrame());
+
+        JButton myResultsBtn = buildActionButton("📊  My Results", Color.GREEN);
+        myResultsBtn.addActionListener(e -> openResultsFrame());
+        // My Results action can be wired up later
+
+        buttonRow.add(takeQuizBtn);
+        buttonRow.add(myResultsBtn);
 
         card.add(icon);
         card.add(Box.createVerticalStrut(12));
@@ -121,5 +128,24 @@ public class DashboardFrame extends JFrame {
         btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btn.setPreferredSize(new Dimension(160, 44));
         return btn;
+    }
+
+    /**
+     * Opens the QuizSelectionFrame and closes this dashboard.
+     */
+    private void openQuizSelectionFrame() {
+        SwingUtilities.invokeLater(() -> {
+            QuizSelectionFrame quizSelectionFrame = new QuizSelectionFrame(username);
+            quizSelectionFrame.setVisible(true);
+            DashboardFrame.this.dispose();
+        });
+    }
+
+    private void openResultsFrame() {
+        SwingUtilities.invokeLater(() -> {
+            ResultFrame resultFrame = new ResultFrame(username);
+            resultFrame.setVisible(true);
+            DashboardFrame.this.dispose();
+        });
     }
 }
