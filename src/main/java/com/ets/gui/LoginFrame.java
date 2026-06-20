@@ -21,16 +21,16 @@ import java.awt.event.MouseEvent;
 public class LoginFrame extends JFrame {
 
     // ── Colours ────────────────────────────────────────────────────────────
-    private static final Color BG_DARK        = new Color(18,  18,  30);
-    private static final Color CARD_BG        = new Color(28,  28,  48);
-    private static final Color ACCENT         = new Color(99, 102, 241);   // indigo-500
-    private static final Color ACCENT_HOVER   = new Color(79,  82, 220);
-    private static final Color TEXT_PRIMARY   = new Color(230, 230, 255);
-    private static final Color TEXT_MUTED     = new Color(150, 150, 180);
-    private static final Color FIELD_BG       = new Color(38,  38,  60);
-    private static final Color FIELD_BORDER   = new Color(60,  60,  90);
-    private static final Color ERROR_COLOR    = new Color(239,  68,  68);
-    private static final Color SUCCESS_COLOR  = new Color( 34, 197,  94);
+    private static final Color BG_DARK        = Color.BLACK;
+    private static final Color CARD_BG        = Color.DARK_GRAY;
+    private static final Color ACCENT         = Color.BLUE;
+    private static final Color ACCENT_HOVER   = Color.BLUE;
+    private static final Color TEXT_PRIMARY   = Color.WHITE;
+    private static final Color TEXT_MUTED     = Color.LIGHT_GRAY;
+    private static final Color FIELD_BG       = Color.DARK_GRAY;
+    private static final Color FIELD_BORDER   = Color.GRAY;
+    private static final Color ERROR_COLOR    = Color.RED;
+    private static final Color SUCCESS_COLOR  = Color.GREEN;
 
     // ── UI components ──────────────────────────────────────────────────────
     private JTextField     usernameField;
@@ -75,22 +75,22 @@ public class LoginFrame extends JFrame {
 
         // ── Logo / Icon area
         JLabel icon = new JLabel("🎓", SwingConstants.CENTER);
-        icon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 56));
+        icon.setFont(new Font("Segue UI Emoji", Font.PLAIN, 56));
         icon.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // ── Title
         JLabel title = new JLabel("Welcome Back", SwingConstants.CENTER);
-        title.setFont(new Font("Segoe UI", Font.BOLD, 26));
+        title.setFont(new Font("Segue UI", Font.BOLD, 26));
         title.setForeground(TEXT_PRIMARY);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // ── Subtitle
         JLabel subtitle = new JLabel("Sign in to your ETS account", SwingConstants.CENTER);
-        subtitle.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        subtitle.setFont(new Font("Segue UI", Font.PLAIN, 14));
         subtitle.setForeground(TEXT_MUTED);
         subtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // ── Username field (initialise first, pass into builder)
+        // ── Username field (initialize first, pass into builder)
         usernameField = new JTextField(20);
         JPanel usernameGroup = buildFieldGroup("Username", usernameField);
 
@@ -100,7 +100,7 @@ public class LoginFrame extends JFrame {
 
         // ── Status label (errors / success messages)
         statusLabel = new JLabel(" ", SwingConstants.CENTER);
-        statusLabel.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        statusLabel.setFont(new Font("Segue UI", Font.PLAIN, 13));
         statusLabel.setForeground(ERROR_COLOR);
         statusLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -109,7 +109,7 @@ public class LoginFrame extends JFrame {
 
         // ── Hint
         JLabel hint = new JLabel("Demo: student01 / admin01  ·  password123", SwingConstants.CENTER);
-        hint.setFont(new Font("Segoe UI", Font.ITALIC, 11));
+        hint.setFont(new Font("Segue UI", Font.ITALIC, 11));
         hint.setForeground(TEXT_MUTED);
         hint.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -150,7 +150,7 @@ public class LoginFrame extends JFrame {
 
         // Label
         JLabel lbl = new JLabel(label);
-        lbl.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        lbl.setFont(new Font("Segue UI", Font.BOLD, 13));
         lbl.setForeground(TEXT_PRIMARY);
         lbl.setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -158,7 +158,7 @@ public class LoginFrame extends JFrame {
         field.setBackground(FIELD_BG);
         field.setForeground(TEXT_PRIMARY);
         field.setCaretColor(TEXT_PRIMARY);
-        field.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        field.setFont(new Font("Segue UI", Font.PLAIN, 14));
         field.setBorder(BorderFactory.createEmptyBorder());
         field.setOpaque(false);
 
@@ -200,7 +200,7 @@ public class LoginFrame extends JFrame {
                 super.paintComponent(g);
             }
         };
-        btn.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        btn.setFont(new Font("Segue UI", Font.BOLD, 15));
         btn.setForeground(Color.WHITE);
         btn.setOpaque(false);
         btn.setContentAreaFilled(false);

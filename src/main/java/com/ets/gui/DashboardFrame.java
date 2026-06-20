@@ -9,12 +9,12 @@ import java.awt.*;
  */
 public class DashboardFrame extends JFrame {
 
-    // ── Colours (matches LoginFrame theme) ────────────────────────────────
-    private static final Color BG_DARK      = new Color(18,  18,  30);
-    private static final Color CARD_BG      = new Color(28,  28,  48);
-    private static final Color ACCENT       = new Color(99, 102, 241);
-    private static final Color TEXT_PRIMARY = new Color(230, 230, 255);
-    private static final Color TEXT_MUTED   = new Color(150, 150, 180);
+    // ── Colours (matches LoginFrame theme) ─────────────────────────────────
+    private static final Color BG_DARK      = Color.BLACK;
+    private static final Color CARD_BG      = Color.DARK_GRAY;
+    private static final Color ACCENT       = Color.BLUE;
+    private static final Color TEXT_PRIMARY = Color.WHITE;
+    private static final Color TEXT_MUTED   = Color.LIGHT_GRAY;
 
     private final String username;
 
@@ -35,20 +35,7 @@ public class DashboardFrame extends JFrame {
         setContentPane(root);
 
         // ── Header bar ────────────────────────────────────────────────────
-        JPanel header = new JPanel(new BorderLayout());
-        header.setBackground(CARD_BG);
-        header.setBorder(new EmptyBorder(16, 24, 16, 24));
-
-        JLabel appName = new JLabel("📚 Educational Testing System");
-        appName.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        appName.setForeground(TEXT_PRIMARY);
-
-        JLabel greeting = new JLabel("Welcome, " + username + "  👋");
-        greeting.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        greeting.setForeground(TEXT_MUTED);
-
-        header.add(appName,  BorderLayout.WEST);
-        header.add(greeting, BorderLayout.EAST);
+        JPanel header = getJPanel();
         root.add(header, BorderLayout.NORTH);
 
         // ── Centre content ─────────────────────────────────────────────────
@@ -62,16 +49,16 @@ public class DashboardFrame extends JFrame {
         card.setBorder(new EmptyBorder(40, 48, 40, 48));
 
         JLabel icon = new JLabel("🎓", SwingConstants.CENTER);
-        icon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 52));
+        icon.setFont(new Font("Segue UI Emoji", Font.PLAIN, 52));
         icon.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel title = new JLabel("Student Dashboard", SwingConstants.CENTER);
-        title.setFont(new Font("Segoe UI", Font.BOLD, 24));
+        title.setFont(new Font("Segue UI", Font.BOLD, 24));
         title.setForeground(TEXT_PRIMARY);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel subtitle = new JLabel("Select an action below to get started", SwingConstants.CENTER);
-        subtitle.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        subtitle.setFont(new Font("Segue UI", Font.PLAIN, 14));
         subtitle.setForeground(TEXT_MUTED);
         subtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -81,7 +68,7 @@ public class DashboardFrame extends JFrame {
         buttonRow.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         buttonRow.add(buildActionButton("📝  Take Quiz",   ACCENT));
-        buttonRow.add(buildActionButton("📊  My Results",  new Color(16, 185, 129)));
+        buttonRow.add(buildActionButton("📊  My Results",  Color.GREEN));
 
         card.add(icon);
         card.add(Box.createVerticalStrut(12));
@@ -93,6 +80,24 @@ public class DashboardFrame extends JFrame {
 
         centre.add(card);
         root.add(centre, BorderLayout.CENTER);
+    }
+
+    private JPanel getJPanel() {
+        JPanel header = new JPanel(new BorderLayout());
+        header.setBackground(CARD_BG);
+        header.setBorder(new EmptyBorder(16, 24, 16, 24));
+
+        JLabel appName = new JLabel("📚 Educational Testing System");
+        appName.setFont(new Font("Segue UI", Font.BOLD, 16));
+        appName.setForeground(TEXT_PRIMARY);
+
+        JLabel greeting = new JLabel("Welcome, " + username + "  👋");
+        greeting.setFont(new Font("Segue UI", Font.PLAIN, 14));
+        greeting.setForeground(TEXT_MUTED);
+
+        header.add(appName,  BorderLayout.WEST);
+        header.add(greeting, BorderLayout.EAST);
+        return header;
     }
 
     private JButton buildActionButton(String text, Color color) {
@@ -107,7 +112,7 @@ public class DashboardFrame extends JFrame {
                 super.paintComponent(g);
             }
         };
-        btn.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        btn.setFont(new Font("Segue UI", Font.BOLD, 14));
         btn.setForeground(Color.WHITE);
         btn.setOpaque(false);
         btn.setContentAreaFilled(false);
