@@ -12,7 +12,7 @@ public class QuizSelectionFrame extends JFrame {
     // ── Colours (matches app theme) ──────────────────────────────────────────
     private static final Color BG_DARK      = Color.BLACK;
     private static final Color CARD_BG      = Color.DARK_GRAY;
-    private static final Color ACCENT       = Color.BLUE;
+//    private static final Color ACCENT       = Color.BLUE;
     private static final Color TEXT_PRIMARY = Color.WHITE;
     private static final Color TEXT_MUTED   = Color.LIGHT_GRAY;
 
