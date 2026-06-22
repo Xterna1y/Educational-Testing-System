@@ -3,11 +3,14 @@ package com.ets.services;
 import com.ets.model.User;
 import com.ets.repo.UserRepository;
 
+import java.io.IOException;
+
 /**
- * Handles user authentication for the Educational Testing System.
+ * Handles user authentication and registration for the Educational Testing System.
  *
- * <p>Validates username and password against the {@link UserRepository}
- * and returns the authenticated {@link User} on success.</p>
+ * <p>Looks up users in {@link UserRepository}. Authentication requires only a
+ * valid username (no password). Registration checks for duplicates and persists
+ * the new user to disk.</p>
  */
 public class AuthenticationService {
 
@@ -18,26 +21,29 @@ public class AuthenticationService {
     }
 
     /**
-     * Attempts to authenticate a user with the supplied credentials.
+     * Attempts to authenticate a user by username only.
      *
-     * @param username the plain-text username
-     * @param password the plain-text password
-     * @return the authenticated {@link User} if credentials match, or {@code null} otherwise
+     * @param username the username entered by the user
+     * @return the authenticated {@link User} if found, or {@code null} otherwise
      */
-    public User authenticate(String username, String password) {
-        if (username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()) {
+    public User authenticate(String username) {
+        if (username == null || username.trim().isEmpty()) {
             return null;
         }
+        return userRepository.findByUsername(username.trim());
+    }
 
-        User user = userRepository.findByUsername(username.trim());
-        if (user == null) {
-            return null; // Username not found
+    /**
+     * Registers a new student account.
+     *
+     * @param username the desired username
+     * @return the newly created {@link User}, or {@code null} if username is already taken
+     * @throws IOException if the user data cannot be saved
+     */
+    public User registerUser(String username) throws IOException {
+        if (username == null || username.trim().isEmpty()) {
+            return null;
         }
-
-        if (user.getPassword().equals(password)) {
-            return user; // Credentials match
-        }
-
-        return null; // Wrong password
+        return userRepository.registerUser(username.trim());
     }
 }
