@@ -169,17 +169,31 @@ public class UserRepository {
     }
 
     /**
-     * Registers a new STUDENT user and persists the updated list to users.json.
+     * Registers a new STUDENT user (convenience overload).
      *
      * @param username desired username
      * @return the newly created {@link Student}, or {@code null} if the username is already taken
      * @throws IOException if the file cannot be written
      */
     public User registerUser(String username) throws IOException {
+        return registerUser(username, "STUDENT");
+    }
+
+    /**
+     * Registers a new user with the given role and persists the updated list to users.json.
+     *
+     * @param username desired username
+     * @param role     role to assign — {@code "STUDENT"} or {@code "ADMIN"}
+     * @return the newly created {@link User}, or {@code null} if the username is already taken
+     * @throws IOException if the file cannot be written
+     */
+    public User registerUser(String username, String role) throws IOException {
         if (findByUsername(username) != null) {
             return null; // duplicate
         }
-        Student newUser = new Student(username, "", "STUDENT");
+        User newUser = "ADMIN".equalsIgnoreCase(role)
+                ? new Admin(username, "", "ADMIN")
+                : new Student(username, "", "STUDENT");
         users.add(newUser);
         persistUsers();
         return newUser;
