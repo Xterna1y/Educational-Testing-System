@@ -1,5 +1,7 @@
 package com.ets.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,7 +24,7 @@ public final class Question {
         this.id = Objects.requireNonNull(id);
         this.category = Objects.requireNonNull(category);
         this.text = Objects.requireNonNull(text);
-        this.options = List.copyOf(Objects.requireNonNull(options));
+        this.options = Collections.unmodifiableList(new ArrayList<>(Objects.requireNonNull(options)));
         this.correctOptionIndex = correctOptionIndex;
         this.difficulty = Objects.requireNonNull(difficulty);
     }
