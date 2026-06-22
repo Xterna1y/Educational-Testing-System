@@ -49,22 +49,22 @@ public class QuizSelectionFrame extends JFrame {
         card.setBorder(new EmptyBorder(40, 48, 40, 48));
 
         JLabel icon = new JLabel("📝", SwingConstants.CENTER);
-        icon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 52));
+        icon.setFont(new Font("Segue UI Emoji", Font.PLAIN, 52));
         icon.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel title = new JLabel("Select a Quiz", SwingConstants.CENTER);
-        title.setFont(new Font("Segoe UI", Font.BOLD, 24));
+        title.setFont(new Font("Segue UI", Font.BOLD, 24));
         title.setForeground(TEXT_PRIMARY);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel subtitle = new JLabel("Choose a quiz to begin", SwingConstants.CENTER);
-        subtitle.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        subtitle.setFont(new Font("Segue UI", Font.PLAIN, 14));
         subtitle.setForeground(TEXT_MUTED);
         subtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // ── Back button ───────────────────────────────────────────────────
         JButton backBtn = new JButton("← Back to Dashboard");
-        backBtn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        backBtn.setFont(new Font("Segue UI", Font.PLAIN, 13));
         backBtn.setForeground(TEXT_MUTED);
         backBtn.setBackground(CARD_BG);
         backBtn.setBorderPainted(false);
@@ -95,11 +95,11 @@ public class QuizSelectionFrame extends JFrame {
         header.setBorder(new EmptyBorder(16, 24, 16, 24));
 
         JLabel appName = new JLabel("📚 Educational Testing System");
-        appName.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        appName.setFont(new Font("Segue UI", Font.BOLD, 16));
         appName.setForeground(TEXT_PRIMARY);
 
         JLabel greeting = new JLabel("Welcome, " + username + "  👋");
-        greeting.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        greeting.setFont(new Font("Segue UI", Font.PLAIN, 14));
         greeting.setForeground(TEXT_MUTED);
 
         header.add(appName,  BorderLayout.WEST);
