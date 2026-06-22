@@ -39,7 +39,7 @@ public final class QuizFrame extends JFrame {
         controller.startQuiz(questions, strategy);
 
         this.questionPanel = new QuestionPanel(this);
-        this.resultPanel = new ResultFrame(this);
+        this.resultPanel = new ResultFrame();
 
         mainPanel.add(questionPanel, QUIZ);
         mainPanel.add(resultPanel, RESULT);
