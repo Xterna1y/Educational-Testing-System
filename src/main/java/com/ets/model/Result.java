@@ -1,5 +1,7 @@
 package com.ets.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,7 +19,7 @@ public final class Result {
     public Result(String quizId, List<Answer> answers,
                       int score, int totalPoints) {
         this.quizId = Objects.requireNonNull(quizId);
-        this.answers = List.copyOf(Objects.requireNonNull(answers));
+        this.answers = Collections.unmodifiableList(new ArrayList<>(Objects.requireNonNull(answers)));
         this.score = score;
         this.totalPoints = totalPoints;
     }
