@@ -13,30 +13,28 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 /**
- * Login screen for the Educational Testing System.
+ * Student login screen for the Educational Testing System.
  *
  * <p>Presents a username field and two buttons — <em>Login</em> and
- * <em>Register</em> — delegating both actions to {@link LoginController}.
- * No password is required. On a successful login the appropriate dashboard
- * opens; on a successful registration the new account is confirmed and the
- * user is logged in automatically. Duplicate username attempts show an
- * inline error message.</p>
+ * <em>Register</em> — for STUDENT accounts only. An "Admin Portal" link
+ * at the bottom opens {@link AdminLoginFrame} for administrator access.</p>
  */
 public class LoginFrame extends JFrame {
 
-    // ── Colours ────────────────────────────────────────────────────────────
-    private static final Color BG_DARK        = new Color(15, 15, 20);
-    private static final Color CARD_BG        = new Color(28, 28, 38);
-    private static final Color ACCENT         = new Color(99, 102, 241);   // Indigo
-    private static final Color ACCENT_HOVER   = new Color(129, 132, 255);
-    private static final Color ACCENT2        = new Color(16, 185, 129);   // Emerald
-    private static final Color ACCENT2_HOVER  = new Color(52, 211, 153);
-    private static final Color TEXT_PRIMARY   = Color.WHITE;
-    private static final Color TEXT_MUTED     = new Color(148, 163, 184);
-    private static final Color FIELD_BG       = new Color(38, 38, 52);
-    private static final Color FIELD_BORDER   = new Color(65, 65, 90);
-    private static final Color ERROR_COLOR    = new Color(239, 68, 68);
-    private static final Color SUCCESS_COLOR  = new Color(52, 211, 153);
+    // ── Colours (package-visible so AdminLoginFrame can reuse them) ─────────
+    static final Color BG_DARK       = Color.BLACK;
+    static final Color CARD_BG       = Color.DARK_GRAY;
+    static final Color TEXT_PRIMARY  = Color.WHITE;
+    static final Color TEXT_MUTED    = Color.LIGHT_GRAY;
+    static final Color FIELD_BG      = Color.DARK_GRAY;
+    static final Color FIELD_BORDER  = Color.GRAY;
+    static final Color ERROR_COLOR   = Color.RED;
+    static final Color SUCCESS_COLOR = Color.GREEN;
+
+    private static final Color ACCENT        = Color.BLUE;    // similar to Indigo
+    private static final Color ACCENT_HOVER  = Color.BLUE;
+    private static final Color ACCENT2       = Color.GREEN;   // similar to Emerald
+    private static final Color ACCENT2_HOVER = Color.GREEN;
 
     // ── UI components ──────────────────────────────────────────────────────
     private JTextField usernameField;
@@ -55,37 +53,33 @@ public class LoginFrame extends JFrame {
     // ── UI construction ───────────────────────────────────────────────────
 
     private void buildUI() {
-        setTitle("ETS – Educational Testing System");
+        setTitle("ETS – Student Login");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(480, 500);
-        setMinimumSize(new Dimension(400, 440));
+        setSize(480, 540);
+        setMinimumSize(new Dimension(400, 480));
         setLocationRelativeTo(null);
         setResizable(false);
 
-        // ── Root panel with dark background
         JPanel root = new JPanel(new GridBagLayout());
         root.setBackground(BG_DARK);
         setContentPane(root);
-
-        // ── Card panel (centred)
-        JPanel card = buildCard();
-        root.add(card);
+        root.add(buildCard());
     }
 
     private JPanel buildCard() {
         JPanel card = new JPanel();
         card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
         card.setBackground(CARD_BG);
-        card.setBorder(new EmptyBorder(48, 48, 48, 48));
-        card.setPreferredSize(new Dimension(380, 410));
+        card.setBorder(new EmptyBorder(48, 48, 36, 48));
+        card.setPreferredSize(new Dimension(380, 450));
 
-        // ── Logo / Icon area
+        // ── Icon
         JLabel icon = new JLabel("🎓", SwingConstants.CENTER);
         icon.setFont(new Font("Segue UI Emoji", Font.PLAIN, 56));
         icon.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // ── Title
-        JLabel title = new JLabel("Educational Testing System", SwingConstants.CENTER);
+        JLabel title = new JLabel("Student Portal", SwingConstants.CENTER);
         title.setFont(new Font("Segue UI", Font.BOLD, 22));
         title.setForeground(TEXT_PRIMARY);
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -100,14 +94,17 @@ public class LoginFrame extends JFrame {
         usernameField = new JTextField(20);
         JPanel usernameGroup = buildFieldGroup(usernameField);
 
-        // ── Status label (errors / success messages)
+        // ── Status label
         statusLabel = new JLabel(" ", SwingConstants.CENTER);
         statusLabel.setFont(new Font("Segue UI", Font.PLAIN, 13));
         statusLabel.setForeground(ERROR_COLOR);
         statusLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // ── Buttons row
+        // ── Main buttons
         JPanel buttonRow = buildButtonRow();
+
+        // ── Admin portal link
+        JLabel adminLink = buildAdminLink();
 
         // ── Assembly
         card.add(icon);
@@ -121,16 +118,14 @@ public class LoginFrame extends JFrame {
         card.add(statusLabel);
         card.add(Box.createVerticalStrut(12));
         card.add(buttonRow);
+        card.add(Box.createVerticalStrut(24));
+        card.add(buildDivider());
+        card.add(Box.createVerticalStrut(16));
+        card.add(adminLink);
 
         return card;
     }
 
-    /**
-     * Creates a labelled field group wrapping an already-created input field.
-     *
-     * @param field the pre-created {@link JTextField} to embed
-     * @return a panel containing the label and the styled input wrapper
-     */
     private JPanel buildFieldGroup(JTextField field) {
         JPanel group = new JPanel();
         group.setLayout(new BoxLayout(group, BoxLayout.Y_AXIS));
@@ -138,13 +133,11 @@ public class LoginFrame extends JFrame {
         group.setAlignmentX(Component.CENTER_ALIGNMENT);
         group.setMaximumSize(new Dimension(Integer.MAX_VALUE, 70));
 
-        // Label
         JLabel lbl = new JLabel("Username");
         lbl.setFont(new Font("Segue UI", Font.BOLD, 13));
         lbl.setForeground(TEXT_PRIMARY);
         lbl.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        // Style the field
         field.setBackground(FIELD_BG);
         field.setForeground(TEXT_PRIMARY);
         field.setCaretColor(TEXT_PRIMARY);
@@ -152,16 +145,12 @@ public class LoginFrame extends JFrame {
         field.setBorder(BorderFactory.createEmptyBorder());
         field.setOpaque(false);
 
-        // Allow pressing Enter to trigger login
+        // Enter key triggers login
         field.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "login");
         field.getActionMap().put("login", new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                handleLogin();
-            }
+            @Override public void actionPerformed(ActionEvent e) { handleLogin(); }
         });
 
-        // Wrapper panel that gives the field its coloured background + border
         JPanel wrapper = new JPanel(new BorderLayout());
         wrapper.setBackground(FIELD_BG);
         wrapper.setBorder(BorderFactory.createCompoundBorder(
@@ -178,7 +167,6 @@ public class LoginFrame extends JFrame {
         return group;
     }
 
-    /** Builds a horizontal panel with the Login and Register buttons side by side. */
     private JPanel buildButtonRow() {
         loginButton    = buildStyledButton("Login",    ACCENT,  ACCENT_HOVER);
         registerButton = buildStyledButton("Register", ACCENT2, ACCENT2_HOVER);
@@ -195,14 +183,48 @@ public class LoginFrame extends JFrame {
         return row;
     }
 
+    /** Thin horizontal rule separating the main actions from the admin link. */
+    private JPanel buildDivider() {
+        JPanel line = new JPanel() {
+            @Override protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.setColor(FIELD_BORDER);
+                g.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2);
+            }
+        };
+        line.setBackground(CARD_BG);
+        line.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
+        line.setAlignmentX(Component.CENTER_ALIGNMENT);
+        return line;
+    }
+
+    /** Clickable "Admin Portal →" label that opens the Admin login screen. */
+    private JLabel buildAdminLink() {
+        JLabel link = new JLabel("Admin Portal  →", SwingConstants.CENTER);
+        link.setFont(new Font("Segue UI", Font.PLAIN, 12));
+        link.setForeground(TEXT_MUTED);
+        link.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        link.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        link.addMouseListener(new MouseAdapter() {
+            @Override public void mouseEntered(MouseEvent e) {
+                link.setForeground(new Color(245, 158, 11)); // amber on hover
+            }
+            @Override public void mouseExited(MouseEvent e) {
+                link.setForeground(TEXT_MUTED);
+            }
+            @Override public void mouseClicked(MouseEvent e) {
+                openAdminLogin();
+            }
+        });
+        return link;
+    }
+
     /**
      * Builds a rounded, coloured action button.
-     *
-     * @param text  button label
-     * @param base  base background colour
-     * @param hover hover background colour
+     * Package-visible so {@link AdminLoginFrame} can reuse the same style.
      */
-    private JButton buildStyledButton(String text, Color base, Color hover) {
+    static JButton buildStyledButton(String text, Color base, Color hover) {
         JButton btn = new JButton(text) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -222,7 +244,6 @@ public class LoginFrame extends JFrame {
         btn.setFocusPainted(false);
         btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btn.setPreferredSize(new Dimension(130, 46));
-
         btn.addMouseListener(new MouseAdapter() {
             @Override public void mouseEntered(MouseEvent e) { btn.repaint(); }
             @Override public void mouseExited(MouseEvent e)  { btn.repaint(); }
@@ -234,22 +255,17 @@ public class LoginFrame extends JFrame {
 
     private void handleLogin() {
         String username = usernameField.getText().trim();
-
         if (username.isEmpty()) {
             showStatus("Please enter your username.", false);
             return;
         }
-
         setBothButtonsEnabled(false, "Logging in…", null);
 
         SwingWorker<User, Void> worker = new SwingWorker<User, Void>() {
-            @Override
-            protected User doInBackground() {
-                return controller.login(username);
+            @Override protected User doInBackground() {
+                return controller.login(username, "STUDENT");
             }
-
-            @Override
-            protected void done() {
+            @Override protected void done() {
                 setBothButtonsEnabled(true, "Login", "Register");
                 try {
                     User user = get();
@@ -272,22 +288,17 @@ public class LoginFrame extends JFrame {
 
     private void handleRegister() {
         String username = usernameField.getText().trim();
-
         if (username.isEmpty()) {
             showStatus("Please enter a username to register.", false);
             return;
         }
-
         setBothButtonsEnabled(false, null, "Registering…");
 
         SwingWorker<User, Void> worker = new SwingWorker<User, Void>() {
-            @Override
-            protected User doInBackground() throws IOException {
-                return controller.register(username);
+            @Override protected User doInBackground() throws IOException {
+                return controller.register(username, "STUDENT");
             }
-
-            @Override
-            protected void done() {
+            @Override protected void done() {
                 setBothButtonsEnabled(true, "Login", "Register");
                 try {
                     User user = get();
@@ -307,6 +318,29 @@ public class LoginFrame extends JFrame {
         worker.execute();
     }
 
+    // ── Navigation ────────────────────────────────────────────────────────
+
+    /** Switches to the Admin login screen, closing this frame. */
+    private void openAdminLogin() {
+        SwingUtilities.invokeLater(() -> {
+            AdminLoginFrame adminLogin = new AdminLoginFrame(controller);
+            adminLogin.setVisible(true);
+            LoginFrame.this.dispose();
+        });
+    }
+
+    private void openDashboard(User user) {
+        SwingUtilities.invokeLater(() -> {
+            Timer timer = new Timer(700, e -> {
+                DashboardFrame dashboardFrame = new DashboardFrame(user.getUsername());
+                dashboardFrame.setVisible(true);
+                LoginFrame.this.dispose();
+            });
+            timer.setRepeats(false);
+            timer.start();
+        });
+    }
+
     // ── Helpers ───────────────────────────────────────────────────────────
 
     private void setBothButtonsEnabled(boolean enabled, String loginText, String registerText) {
@@ -319,27 +353,5 @@ public class LoginFrame extends JFrame {
     private void showStatus(String message, boolean success) {
         statusLabel.setForeground(success ? SUCCESS_COLOR : ERROR_COLOR);
         statusLabel.setText(message);
-    }
-
-    /**
-     * Opens the appropriate dashboard based on the authenticated user's role,
-     * then hides this login window.
-     */
-    private void openDashboard(User user) {
-        SwingUtilities.invokeLater(() -> {
-            // Small delay so the user can read the success message
-            Timer timer = new Timer(700, e -> {
-                if ("ADMIN".equalsIgnoreCase(user.getRole())) {
-                    AdminFrame adminFrame = new AdminFrame();
-                    adminFrame.setVisible(true);
-                } else {
-                    DashboardFrame dashboardFrame = new DashboardFrame(user.getUsername());
-                    dashboardFrame.setVisible(true);
-                }
-                LoginFrame.this.dispose();
-            });
-            timer.setRepeats(false);
-            timer.start();
-        });
     }
 }
