@@ -8,6 +8,7 @@ import com.ets.model.Result;
 import com.ets.strategy.QuizStrategy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -66,7 +67,7 @@ public final class QuizService {
             Question q = questions.get(i);
             answers.add(new Answer(q.getId(), selectedIndices.get(i)));
         }
-        return List.copyOf(answers);
+        return Collections.unmodifiableList(new ArrayList<>(answers));
     }
 
     private Question findQuestion(List<Question> questions, String questionId) {
