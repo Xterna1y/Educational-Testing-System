@@ -39,7 +39,7 @@ public class UserRepository {
      *
      * @param jsonFile path to a temporary users JSON file created by the test
      */
-    UserRepository(Path jsonFile) {
+    public UserRepository(Path jsonFile) {
         this.usersFilePath = jsonFile;
         loadUsersFromPath(jsonFile);
     }
