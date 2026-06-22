@@ -142,10 +142,11 @@ public class DashboardFrame extends JFrame {
     }
 
     private void openResultsFrame() {
-        SwingUtilities.invokeLater(() -> {
-            ResultFrame resultFrame = new ResultFrame(username);
-            resultFrame.setVisible(true);
-            DashboardFrame.this.dispose();
-        });
+        JOptionPane.showMessageDialog(
+                this,
+                "Results history is not yet available.",
+                "My Results",
+                JOptionPane.INFORMATION_MESSAGE
+        );
     }
 }
