@@ -1,5 +1,7 @@
 package com.ets.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,7 +27,7 @@ public final class Quiz {
         this.quizId = Objects.requireNonNull(quizId);
         this.title = Objects.requireNonNull(title);
         this.description = Objects.requireNonNull(description);
-        this.questions = List.copyOf(Objects.requireNonNull(questions));
+        this.questions = Collections.unmodifiableList(new ArrayList<>(Objects.requireNonNull(questions)));
         this.timeLimitMinutes = timeLimitMinutes;
         this.shuffleQuestions = shuffleQuestions;
         this.showFeedbackImmediately = showFeedbackImmediately;
