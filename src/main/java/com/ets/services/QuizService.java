@@ -43,9 +43,18 @@ public final class QuizService {
                 .build();
     }
 
-    public Result evaluateQuiz(Quiz quiz, List<Answer> answers) {
+    /**
+     * Evaluates a completed quiz attempt and builds the resulting {@link Result}.
+     *
+     * @param quiz     the quiz that was taken
+     * @param answers  the student's submitted answers
+     * @param username the student who took the quiz, stored on the Result
+     *                 so results can later be looked up per-student
+     */
+    public Result evaluateQuiz(Quiz quiz, List<Answer> answers, String username) {
         Objects.requireNonNull(quiz);
         Objects.requireNonNull(answers);
+        Objects.requireNonNull(username);
         List<Question> questions = quiz.getQuestions();
         int score = 0;
         for (Answer answer : answers) {
@@ -55,7 +64,7 @@ public final class QuizService {
             }
         }
         int totalPoints = quiz.getTotalPoints();
-        return new Result(quiz.getQuizId(), answers, score, totalPoints);
+        return new Result(username, quiz.getQuizId(), answers, score, totalPoints);
     }
 
     public List<Answer> gradeAnswers(Quiz quiz, List<Integer> selectedIndices) {

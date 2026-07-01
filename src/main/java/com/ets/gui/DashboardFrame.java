@@ -72,7 +72,6 @@ public class DashboardFrame extends JFrame {
 
         JButton myResultsBtn = buildActionButton("📊  My Results", Color.GREEN);
         myResultsBtn.addActionListener(e -> openResultsFrame());
-        // My Results action can be wired up later
 
         buttonRow.add(takeQuizBtn);
         buttonRow.add(myResultsBtn);
@@ -141,12 +140,15 @@ public class DashboardFrame extends JFrame {
         });
     }
 
+    /**
+     * Opens the ResultHistoryFrame showing this student's past quiz results,
+     * and closes this dashboard.
+     */
     private void openResultsFrame() {
-        JOptionPane.showMessageDialog(
-                this,
-                "Results history is not yet available.",
-                "My Results",
-                JOptionPane.INFORMATION_MESSAGE
-        );
+        SwingUtilities.invokeLater(() -> {
+            ResultHistoryFrame resultHistoryFrame = new ResultHistoryFrame(username);
+            resultHistoryFrame.setVisible(true);
+            DashboardFrame.this.dispose();
+        });
     }
 }

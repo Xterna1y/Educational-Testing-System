@@ -16,8 +16,14 @@ public class ResultFrame extends JPanel {
     private final JLabel scoreLabel;
     private final JLabel percentLabel;
     private final JLabel gradeLabel;
+    private final String username;
 
-    public ResultFrame() {
+    /**
+     * @param username the student currently taking the quiz, used to return
+     *                 to their dashboard when "Back to Dashboard" is clicked
+     */
+    public ResultFrame(String username) {
+        this.username = username;
         setLayout(new BorderLayout());
         setBackground(Color.DARK_GRAY);
 
@@ -56,17 +62,42 @@ public class ResultFrame extends JPanel {
         gradeLabel.setForeground(Color.LIGHT_GRAY);
         gradeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // "Back to Dashboard" button — disposes the parent QuizFrame window
-        JButton doneBtn = new JButton("Back to Dashboard");
+        // "Back to Dashboard" button — opens a fresh DashboardFrame and
+        // disposes the parent QuizFrame window. Uses a custom paintComponent
+        // (instead of just setBackground/setForeground) because macOS's Aqua
+        // Look-and-Feel ignores JButton's background color for native fills,
+        // which previously made white text render on a white button — i.e.
+        // invisible. Overriding paintComponent and disabling content-area
+        // fill guarantees the color renders on every platform.
+        JButton doneBtn = new JButton("Back to Dashboard") {
+            @Override
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(getBackground());
+                g2.fillRoundRect(0, 0, getWidth(), getHeight(), 10, 10);
+                g2.dispose();
+                super.paintComponent(g);
+            }
+        };
         doneBtn.setFont(new Font("Segoe UI", Font.BOLD, 14));
         doneBtn.setForeground(Color.WHITE);
         doneBtn.setBackground(Color.BLUE);
-        doneBtn.setOpaque(true);
+        doneBtn.setOpaque(false);
+        doneBtn.setContentAreaFilled(false);
+        doneBtn.setBorderPainted(false);
         doneBtn.setFocusPainted(false);
+        doneBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        doneBtn.setPreferredSize(new Dimension(200, 40));
         doneBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         doneBtn.addActionListener(e -> {
-            Window window = SwingUtilities.getWindowAncestor(ResultFrame.this);
-            if (window != null) window.dispose();
+            SwingUtilities.invokeLater(() -> {
+                DashboardFrame dashboard = new DashboardFrame(username);
+                dashboard.setVisible(true);
+
+                Window window = SwingUtilities.getWindowAncestor(ResultFrame.this);
+                if (window != null) window.dispose();
+            });
         });
 
         card.add(icon);

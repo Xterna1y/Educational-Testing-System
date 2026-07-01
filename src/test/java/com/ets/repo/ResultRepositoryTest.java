@@ -24,6 +24,8 @@ class ResultRepositoryTest {
     @TempDir
     Path tempDir;
 
+    private static final String USERNAME = "student1";
+
     // ─────────────────────────────────────────────────────────────────────────
     // 1. saveResult persists a single result and it is retrievable
     // ─────────────────────────────────────────────────────────────────────────
@@ -34,7 +36,7 @@ class ResultRepositoryTest {
         Path file = tempDir.resolve("results.json");
         ResultRepository repo = new JsonResultRepository(file);
 
-        repo.saveResult(new Result("quiz1", new ArrayList<>(), 80, 100));
+        repo.saveResult(new Result(USERNAME, "quiz1", new ArrayList<>(), 80, 100));
 
         List<Result> results = repo.getAllResults();
         assertEquals(1, results.size(), "Exactly one result should be stored");
@@ -50,7 +52,7 @@ class ResultRepositoryTest {
         Path file = tempDir.resolve("results.json");
         ResultRepository repo = new JsonResultRepository(file);
 
-        repo.saveResult(new Result("quiz99", new ArrayList<>(), 70, 100));
+        repo.saveResult(new Result(USERNAME, "quiz99", new ArrayList<>(), 70, 100));
 
         Result saved = repo.getAllResults().get(0);
 
@@ -58,6 +60,7 @@ class ResultRepositoryTest {
                 () -> assertEquals("quiz99", saved.getQuizId(), "quizId should match"),
                 () -> assertEquals(70, saved.getScore(),        "score should match"),
                 () -> assertEquals(100, saved.getTotalPoints(), "totalPoints should match"),
+                () -> assertEquals(USERNAME, saved.getUsername(), "username should match"),
                 () -> assertNotNull(saved.getAnswers(),         "answers list must not be null")
         );
     }
@@ -72,8 +75,8 @@ class ResultRepositoryTest {
         Path file = tempDir.resolve("results.json");
         ResultRepository repo = new JsonResultRepository(file);
 
-        repo.saveResult(new Result("quiz1", new ArrayList<>(), 80, 100));
-        repo.saveResult(new Result("quiz2", new ArrayList<>(), 60, 100));
+        repo.saveResult(new Result(USERNAME, "quiz1", new ArrayList<>(), 80, 100));
+        repo.saveResult(new Result(USERNAME, "quiz2", new ArrayList<>(), 60, 100));
 
         assertEquals(2, repo.getAllResults().size(), "Should return 2 results");
     }
@@ -104,9 +107,9 @@ class ResultRepositoryTest {
         Path file = tempDir.resolve("results.json");
         ResultRepository repo = new JsonResultRepository(file);
 
-        repo.saveResult(new Result("quiz1", new ArrayList<>(), 80, 100));
-        repo.saveResult(new Result("quiz1", new ArrayList<>(), 70, 100));
-        repo.saveResult(new Result("quiz2", new ArrayList<>(), 90, 100));
+        repo.saveResult(new Result(USERNAME, "quiz1", new ArrayList<>(), 80, 100));
+        repo.saveResult(new Result(USERNAME, "quiz1", new ArrayList<>(), 70, 100));
+        repo.saveResult(new Result(USERNAME, "quiz2", new ArrayList<>(), 90, 100));
 
         List<Result> quiz1Results = repo.getResultsByQuiz("quiz1");
 
@@ -123,7 +126,7 @@ class ResultRepositoryTest {
         Path file = tempDir.resolve("results.json");
         ResultRepository repo = new JsonResultRepository(file);
 
-        repo.saveResult(new Result("quiz1", new ArrayList<>(), 80, 100));
+        repo.saveResult(new Result(USERNAME, "quiz1", new ArrayList<>(), 80, 100));
 
         List<Result> results = repo.getResultsByQuiz("unknownQuiz");
 
@@ -142,7 +145,7 @@ class ResultRepositoryTest {
         Path file = tempDir.resolve("results_param_" + score + ".json");
         ResultRepository repo = new JsonResultRepository(file);
 
-        repo.saveResult(new Result("quizX", new ArrayList<>(), score, totalPoints));
+        repo.saveResult(new Result(USERNAME, "quizX", new ArrayList<>(), score, totalPoints));
 
         Result saved = repo.getAllResults().get(0);
 
@@ -164,7 +167,27 @@ class ResultRepositoryTest {
         ResultRepository repo = new JsonResultRepository(badPath);
 
         assertThrows(RuntimeException.class,
-                () -> repo.saveResult(new Result("quiz1", new ArrayList<>(), 80, 100)),
+                () -> repo.saveResult(new Result(USERNAME, "quiz1", new ArrayList<>(), 80, 100)),
                 "saveResult should throw RuntimeException when it cannot write to the file");
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // 9. getResultsByUsername filters correctly and orders newest first
+    // ─────────────────────────────────────────────────────────────────────────
+
+    @Test
+    @DisplayName("getResultsByUsername: returns only results for the given student")
+    void getResultsByUsername_mixedUsers_returnsOnlyMatchingUsername() {
+        Path file = tempDir.resolve("results.json");
+        JsonResultRepository repo = new JsonResultRepository(file);
+
+        repo.saveResult(new Result("alice", "quiz1", new ArrayList<>(), 80, 100));
+        repo.saveResult(new Result("bob", "quiz1", new ArrayList<>(), 60, 100));
+        repo.saveResult(new Result("alice", "quiz2", new ArrayList<>(), 90, 100));
+
+        List<Result> aliceResults = repo.getResultsByUsername("alice");
+
+        assertEquals(2, aliceResults.size(), "Should return only alice's 2 results");
+        assertTrue(aliceResults.stream().allMatch(r -> r.getUsername().equals("alice")));
     }
 }

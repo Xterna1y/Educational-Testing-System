@@ -3,6 +3,7 @@ package com.ets.gui;
 import com.ets.controller.QuizController;
 import com.ets.model.Question;
 import com.ets.model.Result;
+import com.ets.repo.ResultRepository;
 import com.ets.services.QuizService;
 import com.ets.strategy.QuizStrategy;
 
@@ -27,19 +28,25 @@ public final class QuizFrame extends JFrame {
     private final QuestionPanel questionPanel;
     private final ResultFrame resultPanel;
 
-    public QuizFrame(QuizService service, List
-                             <Question> questions,
-                     QuizStrategy strategy) {
+    /**
+     * @param service          quiz creation/scoring logic
+     * @param questions        the questions selected for this quiz attempt
+     * @param strategy         the selection strategy used (passed through to the controller)
+     * @param resultRepository where the completed result gets saved; may be {@code null}
+     * @param username         the student taking the quiz
+     */
+    public QuizFrame(QuizService service, List<Question> questions, QuizStrategy strategy,
+                     ResultRepository resultRepository, String username) {
         super("Educational Testing System");
 
-        this.controller = new QuizController(service);
+        this.controller = new QuizController(service, resultRepository, username);
         this.cardLayout = new CardLayout();
         this.mainPanel = new JPanel(cardLayout);
 
         controller.startQuiz(questions, strategy);
 
         this.questionPanel = new QuestionPanel(this);
-        this.resultPanel = new ResultFrame();
+        this.resultPanel = new ResultFrame(username);
 
         mainPanel.add(questionPanel, QUIZ);
         mainPanel.add(resultPanel, RESULT);

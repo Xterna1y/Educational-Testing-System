@@ -110,4 +110,21 @@ public class JsonResultRepository
 
         return matches;
     }
+
+    /**
+     * Returns all results for the given student, most recently completed first.
+     */
+    @Override
+    public List<Result> getResultsByUsername(String username) {
+        List<Result> matches = new ArrayList<>();
+
+        for (Result result : getAllResults()) {
+            if (result.getUsername().equalsIgnoreCase(username)) {
+                matches.add(result);
+            }
+        }
+
+        matches.sort((a, b) -> b.getCompletedAt().compareTo(a.getCompletedAt()));
+        return matches;
+    }
 }

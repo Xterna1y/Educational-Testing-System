@@ -1,632 +1,640 @@
 [
   {
-    "id": "9412c256",
-    "category": "General Knowledge",
-    "text": "In past times, what would a gentleman keep in his fob pocket?",
+    "id": "01900de4",
+    "category": "Entertainment: Video Games",
+    "text": "In \"A Hat in Time\", what must Hat Kid collect to finish a level",
     "options": [
-      "Watch",
-      "Notebook",
-      "Money",
-      "Keys"
+      "A time piece",
+      "A relic fragment",
+      "A hat",
+      "A heart fragment"
     ],
     "correctOptionIndex": 0,
     "difficulty": "EASY"
   },
   {
-    "id": "6567f2b8",
-    "category": "Entertainment: Music",
-    "text": "Which classical composer wrote the \"Moonlight Sonata\"?",
-    "options": [
-      "Ludvig Van Beethoven",
-      "Chief Keef",
-      "Johannes Brahms",
-      "Wolfgang Amadeus Mozart"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "10b8a2a6",
+    "id": "8e30280b",
     "category": "Entertainment: Japanese Anime \u0026 Manga",
-    "text": "Who is the author of the manga series \"Astro Boy\"?",
+    "text": "Which part from the JoJo\u0027s Bizarre Adventure manga is about a horse race across America?",
     "options": [
-      "Yoshihiro Tatsumi",
-      "Mitsuteri Yokoyama",
-      "Osamu Tezuka",
-      "Takao Saito"
+      "Part 7: Steel Ball Run",
+      "Part 6: Stone Ocean",
+      "Part 3: Stardust Crusaders",
+      "Part 5: Golden Wind"
     ],
-    "correctOptionIndex": 2,
+    "correctOptionIndex": 0,
     "difficulty": "EASY"
   },
   {
-    "id": "99186f38",
-    "category": "Entertainment: Comics",
-    "text": "Who is the creator of the comic series \"The Walking Dead\"?",
+    "id": "f2150283",
+    "category": "Entertainment: Video Games",
+    "text": "Nintendo\u0027s Luigi was originally just called Green Mario?",
     "options": [
-      "Malcolm Wheeler-Nicholson",
-      "Robert Crumb",
-      "Robert Kirkman",
-      "Stan Lee"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "c377a316",
-    "category": "Entertainment: Television",
-    "text": "How many seasons did the Sci-Fi television show \"Stargate Universe\" have?",
-    "options": [
-      "3",
-      "2",
-      "10",
-      "5"
+      "True",
+      "False"
     ],
     "correctOptionIndex": 1,
     "difficulty": "EASY"
   },
   {
-    "id": "9af374a4",
-    "category": "General Knowledge",
-    "text": "What is on display in the Madame Tussaud\u0027s museum in London?",
+    "id": "66a9c626",
+    "category": "Entertainment: Video Games",
+    "text": "Which of the following characters is NOT a female marriage candidate in the game Stardew Valley?",
     "options": [
-      "Vintage cars",
-      "Unreleased film reels",
-      "Wax sculptures",
-      "Designer clothing"
+      "Abigail",
+      "Haley",
+      "Leah",
+      "Caroline"
     ],
-    "correctOptionIndex": 2,
+    "correctOptionIndex": 3,
     "difficulty": "EASY"
   },
   {
-    "id": "af7f846b",
-    "category": "General Knowledge",
-    "text": "What is \"dabbing\"?",
+    "id": "e68094c0",
+    "category": "Entertainment: Video Games",
+    "text": "Which Pokémon can learn the move \"Secret Power\" by leveling up?",
     "options": [
-      "A medical procedure",
-      "A dance",
-      "A sport",
-      "A language"
+      "Silvally",
+      "Audino",
+      "Arceus",
+      "Type:Null"
     ],
     "correctOptionIndex": 1,
     "difficulty": "EASY"
   },
   {
-    "id": "d58d294b",
+    "id": "d8895e3b",
+    "category": "General Knowledge",
+    "text": "The CEO of tech company Apple following Steve Jobs is named Tim Apple.",
+    "options": [
+      "False",
+      "True"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "59f739fe",
     "category": "Geography",
-    "text": "What is the official language of Costa Rica?",
+    "text": "What is the capital of Spain?",
     "options": [
-      "English",
-      "Portuguese",
-      "Spanish",
-      "Creole"
+      "Toledo",
+      "Barcelona",
+      "Sevilla",
+      "Madrid"
+    ],
+    "correctOptionIndex": 3,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "a66f6663",
+    "category": "Geography",
+    "text": "There are no deserts in Europe.",
+    "options": [
+      "False",
+      "True"
+    ],
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "82ce5885",
+    "category": "History",
+    "text": "What is widely considered to be the oldest civilization known to mankind?",
+    "options": [
+      "Sumeria",
+      "Babylon",
+      "Phoenicia",
+      "Assyria"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "9ed30070",
+    "category": "Entertainment: Video Games",
+    "text": "Which game did \"Sonic The Hedgehog\" make his first appearance in?",
+    "options": [
+      "Rad Mobile",
+      "Mega Man",
+      "Super Mario 64",
+      "Sonic The Hedgehog"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "afc01e4e",
+    "category": "Science: Mathematics",
+    "text": "What is a polygon with eight sides called?",
+    "options": [
+      "Octagon",
+      "Nanagon",
+      "Heptagon",
+      "Hexagon"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "389d73ca",
+    "category": "Entertainment: Video Games",
+    "text": "In \"Phoenix Wright: Ace Attorney\" which character is the District Chief of Police?",
+    "options": [
+      "Lana Skye",
+      "Miles Edgeworth",
+      "Damon Gant",
+      "Mike Meekins"
     ],
     "correctOptionIndex": 2,
     "difficulty": "EASY"
   },
   {
-    "id": "a374ce71",
-    "category": "General Knowledge",
-    "text": "Which of these fast-food chains is NOT mainly known to sell pizza?",
+    "id": "5b42e961",
+    "category": "Science: Computers",
+    "text": "What does LTS stand for in the software market?",
     "options": [
+      "Long Term Support",
+      "Long Taco Service",
+      "Ludicrous Turbo Speed",
+      "Ludicrous Transfer Speed"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "691c51c8",
+    "category": "Entertainment: Video Games",
+    "text": "In \"Undertale\", how many main endings are there?",
+    "options": [
+      "5",
+      "13",
+      "3",
+      "2"
+    ],
+    "correctOptionIndex": 2,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "fb538cf1",
+    "category": "Celebrities",
+    "text": "By which name is Ramon Estevez better known as?",
+    "options": [
+      "Charlie Sheen",
+      "Emilio Estevez",
+      "Ramon Sheen",
+      "Martin Sheen"
+    ],
+    "correctOptionIndex": 3,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "23c51972",
+    "category": "Science: Computers",
+    "text": "In any programming language, what is the most common way to iterate through an array?",
+    "options": [
+      "\u0026#039;While\u0026#039; loops",
+      "\u0026#039;Do-while\u0026#039; loops",
+      "\u0026#039;If\u0026#039; Statements",
+      "\u0026#039;For\u0026#039; loops"
+    ],
+    "correctOptionIndex": 3,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "26581f46",
+    "category": "Geography",
+    "text": "Which Russian oblast forms a border with Poland?",
+    "options": [
+      "Omsk",
+      "Samara",
+      "Nizhny Novgorod",
+      "Kaliningrad"
+    ],
+    "correctOptionIndex": 3,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "c46600fc",
+    "category": "Mythology",
+    "text": "What mythology did the god \"Apollo\" come from?",
+    "options": [
+      "Roman and Spanish",
+      "Greek and Roman",
+      "Greek, Roman and Norse",
+      "Greek and Chinese"
+    ],
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "1a95847a",
+    "category": "Science: Gadgets",
+    "text": "What is the SI unit for resistance?",
+    "options": [
+      "Volts",
+      "Ampheres",
+      "Ohms",
+      "Siemens"
+    ],
+    "correctOptionIndex": 2,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "b59e0dfa",
+    "category": "Entertainment: Television",
+    "text": "The HBO series \"Game of Thrones\" is based on which series of books?",
+    "options": [
+      "The Wheel of Time",
+      "Harry Potter",
+      "The Notebook",
+      "A Song of Ice and Fire"
+    ],
+    "correctOptionIndex": 3,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "12fefcc8",
+    "category": "Geography",
+    "text": "In which country is the city of Rio de Janeiro?",
+    "options": [
+      "Brazil",
+      "Peru",
+      "Venezuela",
+      "Chile"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "62c5910d",
+    "category": "General Knowledge",
+    "text": "Earth is located in which galaxy?",
+    "options": [
+      "The Black Hole",
+      "The Milky Way Galaxy",
+      "The Mars Galaxy",
+      "The Galaxy Note"
+    ],
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "ab7e328b",
+    "category": "Entertainment: Television",
+    "text": "What is the name of the planet that the Doctor from television series \"Doctor Who\" comes from?",
+    "options": [
+      "Sontar",
+      "Skaro",
+      "Gallifrey",
+      "Mondas"
+    ],
+    "correctOptionIndex": 2,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "65b7f192",
+    "category": "Entertainment: Japanese Anime \u0026 Manga",
+    "text": "In 2013, virtual pop-star Hatsune Miku had a sponsorship with which pizza chain?",
+    "options": [
+      "Sabarro\u0026#039;s",
+      "Pizza Hut",
       "Domino\u0026#039;s",
-      "Little Caesars",
-      "Wendy\u0026#039;s",
       "Papa John\u0026#039;s"
     ],
     "correctOptionIndex": 2,
     "difficulty": "EASY"
   },
   {
-    "id": "924f3aa3",
-    "category": "History",
-    "text": "When did the Battle of the Somme begin?",
+    "id": "4e010a35",
+    "category": "Entertainment: Video Games",
+    "text": "Who is the founder of Team Fortress 2\u0027s fictional company \"Mann Co\"?",
     "options": [
-      "June 30th, 1916",
-      "August 1st, 1916",
-      "July 2nd, 1916",
-      "July 1st, 1916"
+      "Wallace Breem",
+      "Cave Johnson",
+      "Zepheniah Mann",
+      "Saxton Hale"
+    ],
+    "correctOptionIndex": 2,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "71d062f0",
+    "category": "Entertainment: Video Games",
+    "text": "In the game \"Hearthstone\", what is the best rank possible?",
+    "options": [
+      "Rank 1 Master",
+      "Rank 1 Legend",
+      "Rank 1 Supreme",
+      "Rank 1 Elite"
+    ],
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "938f7484",
+    "category": "Science: Gadgets",
+    "text": "What does GPS stand for?",
+    "options": [
+      "General Personal Satellite",
+      "General Positioning System",
+      "Global Personal System",
+      "Global Positioning System"
     ],
     "correctOptionIndex": 3,
     "difficulty": "EASY"
   },
   {
-    "id": "d5fa6425",
-    "category": "Entertainment: Film",
-    "text": "Leonardo DiCaprio won an Oscar for Best Actor in 2004\u0027s \"The Aviator\".",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctOptionIndex": 1,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "32609410",
-    "category": "Entertainment: Video Games",
-    "text": "In the Mortal Kombat series the \"Deadly Alliance\" consists of Shang Tsung and Quan Chi",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "92b389d8",
-    "category": "Science \u0026 Nature",
-    "text": "What is the unit of electrical resistance?",
-    "options": [
-      "Joule",
-      "Ohm",
-      "Mho",
-      "Tesla"
-    ],
-    "correctOptionIndex": 1,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "df925e17",
-    "category": "Entertainment: Cartoon \u0026 Animations",
-    "text": "Which of the following is not a Flintstones character?",
-    "options": [
-      "The Great Gazoo",
-      "Barney Rubble",
-      "Lord Rockingham IX",
-      "Rockhead Slate"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "c7a84689",
-    "category": "Entertainment: Video Games",
-    "text": "In the Fallout: New Vegas add-on Lonesome Road, Ulysses wields a flag pole named The Liberator.",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctOptionIndex": 1,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "0aa35561",
-    "category": "History",
-    "text": "Who led the Communist Revolution of Russia?",
-    "options": [
-      "Vladimir Lenin",
-      "Joseph Stalin",
-      "Mikhail Gorbachev",
-      "Vladimir Putin"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "9a7ae095",
-    "category": "Geography",
-    "text": "There is a city called Rome in every continent on Earth.",
-    "options": [
-      "False",
-      "True"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "8f3f5845",
-    "category": "Geography",
-    "text": "What is the largest country in the world?",
-    "options": [
-      "Russia",
-      "China",
-      "Canada",
-      "United States"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "ed9f14f2",
-    "category": "Entertainment: Video Games",
-    "text": "Which of these levels does NOT appear in the console/PC versions of the game \"Sonic Generations\"?",
-    "options": [
-      "Planet Wisp",
-      "City Escape",
-      "Mushroom Hill",
-      "Sky Sanctuary"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "5cdd750e",
-    "category": "Animals",
-    "text": "How many legs do butterflies have?",
-    "options": [
-      "4",
-      "2",
-      "6",
-      "0"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "00aa7a03",
-    "category": "Entertainment: Video Games",
-    "text": "In vanilla Minecraft, which of the following cannot be made into a block?",
-    "options": [
-      "String",
-      "Wheat",
-      "Charcoal",
-      "Coal"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "9dcb3dea",
-    "category": "Science \u0026 Nature",
-    "text": "Igneous rocks are formed by excessive heat and pressure.",
-    "options": [
-      "False",
-      "True"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "adafb153",
-    "category": "Entertainment: Television",
-    "text": "Which of these characters in \"Stranger Things\" has the power of Telekinesis?",
-    "options": [
-      "Mike",
-      "Karen",
-      "Eleven",
-      "Lucas"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "34a005ca",
-    "category": "Entertainment: Video Games",
-    "text": "Who created the \"Metal Gear\" Series?",
-    "options": [
-      "Shigeru Miyamoto",
-      "Gunpei Yokoi",
-      "Hideo Kojima",
-      "Hiroshi Yamauchi"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "194c10e8",
-    "category": "Entertainment: Video Games",
-    "text": "Donkey Kong was originally set to be a Popeye arcade game.",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "94fd6a22",
-    "category": "Geography",
-    "text": "The country of Belize borders which country?",
-    "options": [
-      "Laos",
-      "Kenya",
-      "Guatemala",
-      "Per\u0026uacute;"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "3422a1fd",
-    "category": "Entertainment: Video Games",
-    "text": "In Team Fortress 2, the weapon \"Your Eternal Reward\" is a reference to the 1992 film Aladdin.",
-    "options": [
-      "False",
-      "True"
-    ],
-    "correctOptionIndex": 1,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "fcada738",
-    "category": "Entertainment: Cartoon \u0026 Animations",
-    "text": "The song \u0027Little April Shower\u0027 features in which Disney cartoon film?",
-    "options": [
-      "The Jungle Book",
-      "Pinocchio",
-      "Bambi",
-      "Cinderella"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "994aeef2",
-    "category": "Entertainment: Film",
-    "text": "Which year was the first official Youtube Rewind released?",
-    "options": [
-      "2010",
-      "2012",
-      "2013",
-      "2011"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "213733c8",
-    "category": "Politics",
-    "text": "The 2016 United States Presidential Election is the first time Hillary Clinton has run for President.",
-    "options": [
-      "False",
-      "True"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "bccbff0c",
-    "category": "Entertainment: Television",
-    "text": "The \"Psycho\" series of videos on YouTube was created by which of the following?",
-    "options": [
-      "Billy Familia",
-      "VeganGainz",
-      "RiDGiD STUDiOS",
-      "Dan Bell"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "d51ae1d3",
+    "id": "b5a5541d",
     "category": "Entertainment: Japanese Anime \u0026 Manga",
-    "text": "In the 2012 animated film \"Wolf Children\", what are the names of the wolf children?",
+    "text": "Which anime heavily features music from the genre \"Eurobeat\"?",
     "options": [
-      "Chuck \u0026amp; Anna",
-      "Hana \u0026amp; Yuki",
-      "Ame \u0026amp; Hana",
-      "Ame \u0026amp; Yuki"
+      "Wangan Midnight",
+      "Initial D",
+      "Kino no Tabi",
+      "Cowboy Bebop"
+    ],
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "22839da6",
+    "category": "General Knowledge",
+    "text": "Which of these fast-food chains is NOT mainly known to sell pizza?",
+    "options": [
+      "Domino\u0026#039;s",
+      "Little Caesars",
+      "Papa John\u0026#039;s",
+      "Wendy\u0026#039;s"
     ],
     "correctOptionIndex": 3,
     "difficulty": "EASY"
   },
   {
-    "id": "73532bd1",
-    "category": "Sports",
-    "text": "Which country hosted the 2020 Summer Olympics?",
+    "id": "8be9be51",
+    "category": "Entertainment: Video Games",
+    "text": "In what year was Garry\u0027s Mod released as a standalone title on Valve\u0027s Steam distribution service?",
+    "options": [
+      "2007",
+      "2003",
+      "2004",
+      "2006"
+    ],
+    "correctOptionIndex": 3,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "bf330179",
+    "category": "Entertainment: Video Games",
+    "text": "Which character in Undertale tells you that you\u0027re \"gonna have a bad time\"?",
+    "options": [
+      "Asriel Dreemurr",
+      "Asgore",
+      "Undyne",
+      "Sans"
+    ],
+    "correctOptionIndex": 3,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "b7a4cae3",
+    "category": "Entertainment: Music",
+    "text": "Which Daft Punk album is the song \"Harder, Better, Faster, Stronger\" from?",
+    "options": [
+      "Human After All",
+      "Random Access Memories",
+      "Homework",
+      "Discovery"
+    ],
+    "correctOptionIndex": 3,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "12b042e6",
+    "category": "Entertainment: Video Games",
+    "text": "In RuneScape, one must complete the \"Dragon Slayer\" quest before equipping Rune Platelegs.",
+    "options": [
+      "False",
+      "True"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "4dc206b1",
+    "category": "Entertainment: Music",
+    "text": "Which English guitarist has the nickname \"Slowhand\"?",
+    "options": [
+      "Eric Clapton",
+      "Jeff Beck",
+      "Mark Knopfler",
+      "Jimmy Page"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "42a18a37",
+    "category": "Science \u0026 Nature",
+    "text": "Which element has the highest melting point?",
+    "options": [
+      "Platinum",
+      "Tungsten",
+      "Osmium",
+      "Carbon"
+    ],
+    "correctOptionIndex": 3,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "7586e345",
+    "category": "Entertainment: Board Games",
+    "text": "Carcassonne is based on which French town?",
+    "options": [
+      "Clermont-Ferrand",
+      "Marseille",
+      "Carcassonne",
+      "Paris"
+    ],
+    "correctOptionIndex": 2,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "18cbc886",
+    "category": "Entertainment: Video Games",
+    "text": "Which of these is NOT a main playable character in \"Grand Theft Auto V\"?",
+    "options": [
+      "Lamar",
+      "Michael",
+      "Trevor",
+      "Franklin"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "775332b6",
+    "category": "Entertainment: Video Games",
+    "text": "In \"Mario Kart 64\", Waluigi is a playable character.",
+    "options": [
+      "False",
+      "True"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "cf1de5b6",
+    "category": "Entertainment: Video Games",
+    "text": "What is Pikachu\u0027s National PokéDex Number?",
+    "options": [
+      "#001",
+      "#025",
+      "#109",
+      "#031"
+    ],
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "335ab3ec",
+    "category": "Geography",
+    "text": "What is Laos?",
+    "options": [
+      "Region",
+      "Country",
+      "River",
+      "City"
+    ],
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "362e2ed4",
+    "category": "History",
+    "text": "How old was Adolf Hitler when he died?",
+    "options": [
+      "56",
+      "47",
+      "43",
+      "65"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "5de2f313",
+    "category": "Entertainment: Music",
+    "text": "Which famous rapper is featured in Jack Ü (Skrillex and Diplo)\u0027s 2015 single called \"Febreze\"?",
+    "options": [
+      "Future",
+      "Kendrick Lamar",
+      "Fatman Scoop",
+      "2 Chainz"
+    ],
+    "correctOptionIndex": 3,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "f9c36c21",
+    "category": "Entertainment: Books",
+    "text": "What\u0027s Harry Potter\u0027s dad\u0027s name?",
+    "options": [
+      "Frank Potter",
+      "Joey Potter",
+      "James Potter",
+      "Hairy Potter Sr."
+    ],
+    "correctOptionIndex": 2,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "02bedf39",
+    "category": "Entertainment: Japanese Anime \u0026 Manga",
+    "text": "No Game No Life first aired in 2014.",
+    "options": [
+      "False",
+      "True"
+    ],
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "43fb9b04",
+    "category": "Entertainment: Music",
+    "text": "Which genre of music is John Coltrane primarily associated with?",
+    "options": [
+      "Death Metal",
+      "Jazz",
+      "Folk",
+      "Rock and Roll"
+    ],
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "9d0680a8",
+    "category": "Entertainment: Film",
+    "text": "Which Batman villain is Mark Hamill known for having voiced?",
+    "options": [
+      "The Joker",
+      "Two-Face",
+      "Hush",
+      "Bane"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "50131463",
+    "category": "General Knowledge",
+    "text": "What country does sushi \u0026 karaoke come from?",
     "options": [
       "Japan",
-      "Germany",
-      "Australia",
-      "China"
+      "China",
+      "South Korea",
+      "Vietnam"
     ],
     "correctOptionIndex": 0,
     "difficulty": "EASY"
   },
   {
-    "id": "a6d47c26",
+    "id": "2d050381",
+    "category": "Entertainment: Video Games",
+    "text": "In the second-generation Pokémon games, which Pokémon can you start with?",
+    "options": [
+      "Grassy, Firey, and Watery",
+      "Bulbasaur, Charmander, and Squirtle",
+      "Chikorita, Cyndaquil, and Totodile",
+      "Treecko,Torchic, and Mudkip"
+    ],
+    "correctOptionIndex": 2,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "f3b8b73b",
     "category": "Geography",
-    "text": "Which of the following former Yugoslavian states is landlocked?",
+    "text": "Which small country is located between the borders of France and Spain?",
     "options": [
-      "Serbia",
-      "Montenegro",
-      "Bosnia and Herzegovina",
-      "Croatia"
+      "Andorra",
+      "Lichtenstein",
+      "San Marino",
+      "Vatican City"
     ],
     "correctOptionIndex": 0,
     "difficulty": "EASY"
   },
   {
-    "id": "26a37bd3",
-    "category": "Entertainment: Music",
-    "text": "Which music publication is often abbreviated to NME?",
+    "id": "bdd8b030",
+    "category": "Entertainment: Comics",
+    "text": "Which superhero is known for his super speed?",
     "options": [
-      "North Manchester Express",
-      "Next Musical Enterprise",
-      "New Metro Entertainment",
-      "New Musical Express"
-    ],
-    "correctOptionIndex": 3,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "f5ffdf13",
-    "category": "Entertainment: Video Games",
-    "text": "If a \"360 no-scope\" is one full rotation before shooting, how many rotations would a \"1080 no-scope\" be?",
-    "options": [
-      "2",
-      "5",
-      "4",
-      "3"
-    ],
-    "correctOptionIndex": 3,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "a0129428",
-    "category": "Entertainment: Music",
-    "text": "\"Hallelujah\" is a song written by which Canadian recording artist?",
-    "options": [
-      "Justin Bieber ",
-      "Ryan Letourneau ",
-      "Leonard Cohen",
-      "Kory Lefkowits"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "235aae44",
-    "category": "General Knowledge",
-    "text": "On average, at least 1 person is killed by a drunk driver in the United States every hour.",
-    "options": [
-      "True",
-      "False"
+      "Flash",
+      "Batman",
+      "Superman",
+      "Spiderman"
     ],
     "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "bd201745",
-    "category": "Entertainment: Video Games",
-    "text": "Which of these Starbound races has a Wild West culture?",
-    "options": [
-      "Human",
-      "Novakid",
-      "Avian",
-      "Hylotl"
-    ],
-    "correctOptionIndex": 1,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "aa9126cc",
-    "category": "General Knowledge",
-    "text": "Waluigi\u0027s first appearance was in what game?",
-    "options": [
-      "Wario Land: Super Mario Land 3",
-      "Mario Tennis 64 (N64)",
-      "Mario Party (N64)",
-      "Super Smash Bros. Ultimate"
-    ],
-    "correctOptionIndex": 1,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "2acee226",
-    "category": "Entertainment: Video Games",
-    "text": "In Undertale, MEGALOVANIA is a theme for which character?",
-    "options": [
-      "Flowey",
-      "Sans",
-      "Undyne",
-      "Papyrus"
-    ],
-    "correctOptionIndex": 1,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "2ca65e4c",
-    "category": "Entertainment: Video Games",
-    "text": "What minimum level in the Defence skill is needed to equip Dragon Armour in the MMO RuneScape?",
-    "options": [
-      "60",
-      "70",
-      "65",
-      "55"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "6e50e1cc",
-    "category": "Entertainment: Video Games",
-    "text": "Who is the leader of the Brotherhood of Nod in the Command and Conquer series?",
-    "options": [
-      "Joseph Stalin",
-      "CABAL",
-      "Yuri",
-      "Kane"
-    ],
-    "correctOptionIndex": 3,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "d8bec08c",
-    "category": "Geography",
-    "text": "What is the capital of Jamaica?",
-    "options": [
-      "Port-au-Prince",
-      "Kingston",
-      "Bridgetown",
-      "San Juan"
-    ],
-    "correctOptionIndex": 1,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "b1fa5503",
-    "category": "Entertainment: Video Games",
-    "text": "Blinky, Pinky, Inky and Clyde are characters from which classic video game?",
-    "options": [
-      "Gauntlet",
-      "Space Invaders",
-      "Pac-Man",
-      "Street Fighter"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "e0efe851",
-    "category": "Entertainment: Video Games",
-    "text": "In the game \"Dead Rising\", what is the profession of the main character Frank West?",
-    "options": [
-      "Bartender",
-      "Motorbike Performer",
-      "Photojournalist",
-      "Mechanic"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "9a78686b",
-    "category": "Entertainment: Music",
-    "text": "Who had a 1983 hit with the song \u0027Africa\u0027?",
-    "options": [
-      "Foreigner",
-      "Journey",
-      "Toto",
-      "Steely Dan"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "62d6890c",
-    "category": "General Knowledge",
-    "text": "Which is the capital of Spain?",
-    "options": [
-      "Paris",
-      "Barcelona",
-      "Madrid",
-      "Lisboa"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "b5cd5e76",
-    "category": "General Knowledge",
-    "text": "Ping-Pong originated in England",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "EASY"
-  },
-  {
-    "id": "85f5b3fe",
-    "category": "Geography",
-    "text": "Which of the following Arab countries does NOT have a flag containing only Pan-Arab colours?",
-    "options": [
-      "Jordan",
-      "Kuwait",
-      "United Arab Emirates",
-      "Qatar"
-    ],
-    "correctOptionIndex": 3,
     "difficulty": "EASY"
   }
 ]

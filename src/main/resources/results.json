@@ -1,1 +1,149 @@
-[]
+[
+  {
+    "username": "Muawiya",
+    "quizId": "1beae756",
+    "answers": [
+      {
+        "questionId": "011bf014",
+        "selectedOptionIndex": 1
+      },
+      {
+        "questionId": "cc4ec10e",
+        "selectedOptionIndex": 3
+      },
+      {
+        "questionId": "181d31d9",
+        "selectedOptionIndex": 0
+      },
+      {
+        "questionId": "4139609f",
+        "selectedOptionIndex": 0
+      },
+      {
+        "questionId": "025404c7",
+        "selectedOptionIndex": 0
+      },
+      {
+        "questionId": "fcbc5de0",
+        "selectedOptionIndex": 0
+      },
+      {
+        "questionId": "dec2edbb",
+        "selectedOptionIndex": 3
+      },
+      {
+        "questionId": "d1616fa5",
+        "selectedOptionIndex": 2
+      },
+      {
+        "questionId": "7cc506ce",
+        "selectedOptionIndex": 3
+      },
+      {
+        "questionId": "4a407ecc",
+        "selectedOptionIndex": 0
+      }
+    ],
+    "score": 50,
+    "totalPoints": 100,
+    "completedAt": "2026-07-01T13:56:42.679513"
+  },
+  {
+    "username": "Muawiya",
+    "quizId": "ade6f465",
+    "answers": [
+      {
+        "questionId": "86650fc9",
+        "selectedOptionIndex": 2
+      },
+      {
+        "questionId": "cd889b54",
+        "selectedOptionIndex": 0
+      },
+      {
+        "questionId": "2db7ab55",
+        "selectedOptionIndex": 2
+      },
+      {
+        "questionId": "6b22af3e",
+        "selectedOptionIndex": 0
+      },
+      {
+        "questionId": "e9692e1b",
+        "selectedOptionIndex": 0
+      },
+      {
+        "questionId": "9aa9131e",
+        "selectedOptionIndex": 1
+      },
+      {
+        "questionId": "96ff5392",
+        "selectedOptionIndex": 1
+      },
+      {
+        "questionId": "e4e6c42e",
+        "selectedOptionIndex": 0
+      },
+      {
+        "questionId": "a346bc63",
+        "selectedOptionIndex": 2
+      },
+      {
+        "questionId": "e8d209a5",
+        "selectedOptionIndex": 2
+      }
+    ],
+    "score": 40,
+    "totalPoints": 100,
+    "completedAt": "2026-07-01T13:59:02.560130"
+  },
+  {
+    "username": "Muawiya",
+    "quizId": "16910203",
+    "answers": [
+      {
+        "questionId": "f9c36c21",
+        "selectedOptionIndex": 2
+      },
+      {
+        "questionId": "938f7484",
+        "selectedOptionIndex": 3
+      },
+      {
+        "questionId": "fb538cf1",
+        "selectedOptionIndex": 1
+      },
+      {
+        "questionId": "4dc206b1",
+        "selectedOptionIndex": 1
+      },
+      {
+        "questionId": "362e2ed4",
+        "selectedOptionIndex": 0
+      },
+      {
+        "questionId": "ab7e328b",
+        "selectedOptionIndex": 2
+      },
+      {
+        "questionId": "bf330179",
+        "selectedOptionIndex": 0
+      },
+      {
+        "questionId": "e68094c0",
+        "selectedOptionIndex": 2
+      },
+      {
+        "questionId": "26581f46",
+        "selectedOptionIndex": 2
+      },
+      {
+        "questionId": "335ab3ec",
+        "selectedOptionIndex": 1
+      }
+    ],
+    "score": 50,
+    "totalPoints": 100,
+    "completedAt": "2026-07-01T14:02:15.024904"
+  }
+]

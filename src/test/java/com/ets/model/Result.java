@@ -14,24 +14,27 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class ResultTest {
 
+    private static final String USERNAME = "student1";
+    private static final String QUIZ_ID = "q1";
+
     // ── getPercentage ─────────────────────────────
 
     @Test
     void getPercentage_fullScore_returns100() {
-        Result result = new Result("q1", List.of(), 30, 30);
+        Result result = new Result(USERNAME, QUIZ_ID, List.of(), 30, 30);
         assertEquals(100.0, result.getPercentage(), 0.01);
     }
 
     @Test
     void getPercentage_zeroScore_returnsZero() {
-        Result result = new Result("q1", List.of(), 0, 30);
+        Result result = new Result(USERNAME, QUIZ_ID, List.of(), 0, 30);
         assertEquals(0.0, result.getPercentage(), 0.01);
     }
 
     @ParameterizedTest(name = "score={0}, total={1} → {2}%")
     @CsvSource({"10,30,33.33", "20,30,66.67", "15,30,50.0", "1,10,10.0"})
     void getPercentage_partialScores_returnsCorrectPercentage(int score, int total, double expected) {
-        Result result = new Result("q1", List.of(), score, total);
+        Result result = new Result(USERNAME, QUIZ_ID, List.of(), score, total);
         assertEquals(expected, result.getPercentage(), 0.01);
     }
 
@@ -46,7 +49,7 @@ class ResultTest {
      */
     @Test
     void getPercentage_zeroTotalPoints_returnsZeroWithNoException() {
-        Result result = new Result("q1", List.of(), 0, 0);
+        Result result = new Result(USERNAME, QUIZ_ID, List.of(), 0, 0);
         assertEquals(0.0, result.getPercentage(), 0.01);
         // Limitation: QuizService allows this state to occur silently.
         // A guard in evaluateQuiz() checking quiz.getTotalPoints() > 0 would be safer.
@@ -55,26 +58,33 @@ class ResultTest {
     // ── Null guards ───────────────────────────────
 
     @Test
+    void constructor_nullUsername_throwsNullPointerException() {
+        assertThrows(NullPointerException.class,
+                () -> new Result(null, QUIZ_ID, List.of(), 10, 30));
+    }
+
+    @Test
     void constructor_nullQuizId_throwsNullPointerException() {
         assertThrows(NullPointerException.class,
-                () -> new Result(null, List.of(), 10, 30));
+                () -> new Result(USERNAME, null, List.of(), 10, 30));
     }
 
     @Test
     void constructor_nullAnswers_throwsNullPointerException() {
         assertThrows(NullPointerException.class,
-                () -> new Result("q1", null, 10, 30));
+                () -> new Result(USERNAME, QUIZ_ID, null, 10, 30));
     }
 
     // ── Getters ───────────────────────────────────
 
     @Test
     void getScore_andGetTotalPoints_returnCorrectValues() {
-        Result result = new Result("q1", List.of(), 20, 40);
+        Result result = new Result(USERNAME, QUIZ_ID, List.of(), 20, 40);
         assertAll(
                 () -> assertEquals(20, result.getScore()),
                 () -> assertEquals(40, result.getTotalPoints()),
-                () -> assertEquals("q1", result.getQuizId())
+                () -> assertEquals(QUIZ_ID, result.getQuizId()),
+                () -> assertEquals(USERNAME, result.getUsername())
         );
     }
 }

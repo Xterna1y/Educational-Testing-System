@@ -4,6 +4,7 @@ import com.ets.model.Answer;
 import com.ets.model.Question;
 import com.ets.model.Quiz;
 import com.ets.model.Result;
+import com.ets.repo.ResultRepository;
 import com.ets.services.QuizService;
 import com.ets.strategy.QuizStrategy;
 
@@ -17,12 +18,24 @@ import java.util.List;
 public final class QuizController {
 
     private final QuizService quizService;
+    private final ResultRepository resultRepository;
+    private final String username;
     private Quiz currentQuiz;
     private List<Answer> currentAnswers;
     private int currentQuestionIndex;
 
-    public QuizController(QuizService quizService) {
+    /**
+     * @param quizService      handles quiz creation and scoring logic
+     * @param resultRepository where completed results get persisted;
+     *                          may be {@code null} if persistence isn't needed
+     * @param username          the student taking the quiz, attached to the
+     *                          resulting {@link Result} so history can be
+     *                          looked up per-student
+     */
+    public QuizController(QuizService quizService, ResultRepository resultRepository, String username) {
         this.quizService = quizService;
+        this.resultRepository = resultRepository;
+        this.username = username;
         this.currentAnswers = new ArrayList<>();
     }
 
@@ -49,7 +62,15 @@ public final class QuizController {
         currentAnswers.add(new Answer(q.getId(), selectedOption));
     }
 
+    /**
+     * Evaluates the completed quiz and persists the resulting {@link Result}
+     * (if a repository was provided) before returning it for display.
+     */
     public Result finishQuiz() {
-        return quizService.evaluateQuiz(currentQuiz, currentAnswers);
+        Result result = quizService.evaluateQuiz(currentQuiz, currentAnswers, username);
+        if (resultRepository != null) {
+            resultRepository.saveResult(result);
+        }
+        return result;
     }
 }

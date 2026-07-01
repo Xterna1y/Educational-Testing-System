@@ -4,7 +4,9 @@ import com.ets.api.TriviaApiService;
 import com.ets.model.Difficulty;
 import com.ets.model.Question;
 import com.ets.repo.CachedQuestionRepository;
+import com.ets.repo.JsonResultRepository;
 import com.ets.repo.QuestionProvider;
+import com.ets.repo.ResultRepository;
 import com.ets.services.QuizService;
 import com.ets.strategy.DifficultyStrategy;
 import com.ets.strategy.QuizStrategy;
@@ -32,6 +34,11 @@ public class QuizSelectionFrame extends JFrame {
     private final String username;
     private final QuestionProvider questionProvider;
     private final QuizService quizService = new QuizService();
+
+    // TODO: same as CachedQuestionRepository below — replace hardcoded path
+    // with something injected from Main.java once a shared instance exists.
+    private final ResultRepository resultRepository =
+            new JsonResultRepository(Path.of("src/main/resources/results.json"));
 
     private JComboBox<Difficulty> difficultyCombo;
     private JComboBox<String> strategyCombo;
@@ -151,16 +158,6 @@ public class QuizSelectionFrame extends JFrame {
         Difficulty selectedDifficulty = (Difficulty) difficultyCombo.getSelectedItem();
         int count = (Integer) countSpinner.getValue();
 
-        // // TEMP DEBUG — delete this after testing
-        //  try {
-        //     new com.ets.api.TriviaApiService().getQuestions(count, null, selectedDifficulty);
-        //     JOptionPane.showMessageDialog(this, "API SUCCESS", "Debug", JOptionPane.INFORMATION_MESSAGE);
-        // } catch (Exception e) {
-        //     JOptionPane.showMessageDialog(this, "API FAILED:\n" + e.getMessage() + "\n\nCause: " + 
-        //         (e.getCause() != null ? e.getCause().getMessage() : "none"),
-        //         "Debug", JOptionPane.ERROR_MESSAGE);
-        // }
-
         // Tries the live Trivia API first; falls back to cached/local
         // questions automatically on any failure (no stack trace shown to user).
         List<Question> available = questionProvider.getQuestions(count, null, selectedDifficulty);
@@ -192,7 +189,7 @@ public class QuizSelectionFrame extends JFrame {
             return;
         }
 
-        QuizFrame quizFrame = new QuizFrame(quizService, selected, strategy);
+        QuizFrame quizFrame = new QuizFrame(quizService, selected, strategy, resultRepository, username);
         quizFrame.setVisible(true);
         dispose();
     }

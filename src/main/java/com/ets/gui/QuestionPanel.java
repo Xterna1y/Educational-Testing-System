@@ -25,7 +25,7 @@ public final class QuestionPanel extends JPanel {
 
     private final QuizFrame frame;
     private final JLabel questionLabel;
-    private final ButtonGroup optionsGroup;
+    private ButtonGroup optionsGroup;
     private final JPanel optionsPanel;
 
     public QuestionPanel(QuizFrame frame) {
@@ -52,7 +52,13 @@ public final class QuestionPanel extends JPanel {
         questionLabel.setText("<html><center>" + question.getText() + "</center></html>");
 
         optionsPanel.removeAll();
-        optionsGroup.clearSelection();
+        // A new ButtonGroup is created each refresh. Previously this called
+        // optionsGroup.clearSelection(), which deselects buttons but does NOT
+        // remove them from the group — old questions' radio buttons stayed
+        // registered in the group forever, shifting the index returned by
+        // getSelectedOption() on every subsequent question and causing
+        // near-permanent incorrect scoring.
+        optionsGroup = new ButtonGroup();
 
         for (String option : question.getOptions()) {
             JRadioButton radio = new JRadioButton(option);

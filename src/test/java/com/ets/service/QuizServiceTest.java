@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class QuizServiceTest {
 
     private static final List<String> OPTIONS = List.of("A", "B", "C", "D");
+    private static final String USERNAME = "student1";
 
     private QuizService service;
 
@@ -64,11 +65,12 @@ class QuizServiceTest {
         Quiz quiz = buildBasicQuiz(List.of(q1, q2));
         List<Answer> answers = List.of(new Answer("q1", 0), new Answer("q2", 0));
 
-        Result result = service.evaluateQuiz(quiz, answers);
+        Result result = service.evaluateQuiz(quiz, answers, USERNAME);
 
         assertAll(
                 () -> assertEquals(20, result.getScore()),
-                () -> assertEquals(20, result.getTotalPoints())
+                () -> assertEquals(20, result.getTotalPoints()),
+                () -> assertEquals(USERNAME, result.getUsername())
         );
     }
 
@@ -78,7 +80,7 @@ class QuizServiceTest {
         Quiz quiz = buildBasicQuiz(List.of(q1));
         List<Answer> answers = List.of(new Answer("q1", 3)); // wrong index
 
-        Result result = service.evaluateQuiz(quiz, answers);
+        Result result = service.evaluateQuiz(quiz, answers, USERNAME);
         assertEquals(0, result.getScore());
     }
 
@@ -93,7 +95,7 @@ class QuizServiceTest {
                 new Answer("q2", 2)   // wrong
         );
 
-        Result result = service.evaluateQuiz(quiz, answers);
+        Result result = service.evaluateQuiz(quiz, answers, USERNAME);
         assertEquals(10, result.getScore()); // 1 out of 2 correct
     }
 
@@ -103,7 +105,7 @@ class QuizServiceTest {
         Quiz quiz = buildBasicQuiz(List.of(q1));
         List<Answer> answers = List.of(new Answer("unknown", 0)); // no match
 
-        Result result = service.evaluateQuiz(quiz, answers);
+        Result result = service.evaluateQuiz(quiz, answers, USERNAME);
         assertEquals(0, result.getScore());
     }
 
@@ -112,7 +114,7 @@ class QuizServiceTest {
         Question q1 = makeQuestion("q1", Difficulty.EASY);
         Quiz quiz = buildBasicQuiz(List.of(q1));
 
-        Result result = service.evaluateQuiz(quiz, List.of());
+        Result result = service.evaluateQuiz(quiz, List.of(), USERNAME);
         assertEquals(0, result.getScore());
     }
 
@@ -121,14 +123,21 @@ class QuizServiceTest {
     @Test
     void evaluateQuiz_nullQuiz_throwsNullPointerException() {
         assertThrows(NullPointerException.class,
-                () -> service.evaluateQuiz(null, List.of()));
+                () -> service.evaluateQuiz(null, List.of(), USERNAME));
     }
 
     @Test
     void evaluateQuiz_nullAnswers_throwsNullPointerException() {
         Quiz quiz = buildBasicQuiz(List.of());
         assertThrows(NullPointerException.class,
-                () -> service.evaluateQuiz(quiz, null));
+                () -> service.evaluateQuiz(quiz, null, USERNAME));
+    }
+
+    @Test
+    void evaluateQuiz_nullUsername_throwsNullPointerException() {
+        Quiz quiz = buildBasicQuiz(List.of());
+        assertThrows(NullPointerException.class,
+                () -> service.evaluateQuiz(quiz, List.of(), null));
     }
 
     // ── gradeAnswers ──────────────────────────────
@@ -173,6 +182,6 @@ class QuizServiceTest {
         // precondition check: if (quiz.getQuestions().isEmpty()) throw new IllegalArgumentException(...)
         Quiz emptyQuiz = buildBasicQuiz(List.of());
         assertThrows(IllegalArgumentException.class,
-                () -> service.evaluateQuiz(emptyQuiz, List.of()));
+                () -> service.evaluateQuiz(emptyQuiz, List.of(), USERNAME));
     }
 }
