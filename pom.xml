@@ -12,10 +12,9 @@
 
     <!-- ── Global properties ────────────────────────────────────────────── -->
     <properties>
-        <!-- Ensure all source files are read as UTF-8 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- Single place to manage the JUnit 5 version across all junit deps -->
         <junit.version>5.12.1</junit.version>
+        <jacoco.version>0.8.12</jacoco.version>
     </properties>
 
     <!-- ── Dependencies ─────────────────────────────────────────────────── -->
@@ -59,31 +58,43 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Google GSON library -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.13.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.13.1</version>
+        </dependency>
+
     </dependencies>
 
     <!-- ── Build plugins ────────────────────────────────────────────────── -->
     <build>
         <plugins>
 
-            <!-- Compiler: targets Java 8 so the project runs on any JDK 8+ -->
+            <!-- Compiler: targets Java 25 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <source>10</source>
-                    <target>10</target>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
 
-            <!-- JavaFX Maven plugin: use "mvn clean javafx:run" to launch the app -->
+            <!-- JavaFX Maven plugin -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>com.ets.ets/com.ets.ets.HelloApplication</mainClass>
@@ -98,16 +109,39 @@
                 </executions>
             </plugin>
 
-            <!--
-                Surefire 3.x is required to discover and run JUnit 5 (Jupiter) tests.
-                The Maven default (Surefire 2.x) silently skips @Test methods written
-                with the JUnit 5 API, so this entry must be present.
-                Run tests with: mvn test
-            -->
+            <!-- Surefire 3.x — required for JUnit 5 test discovery -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
+            </plugin>
+
+            <!--
+                JaCoCo — measures line and branch coverage during test runs.
+                After running: .\mvnw test jacoco:report -Dmaven.test.failure.ignore=true
+                Open: target/site/jacoco/index.html
+            -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <!-- Attach the JaCoCo agent before tests run so it can instrument classes -->
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <!-- Generate the HTML report automatically after tests complete -->
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>
