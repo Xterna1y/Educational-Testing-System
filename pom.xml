@@ -4,37 +4,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- ── Project identity ─────────────────────────────────────────────── -->
     <groupId>com.ets</groupId>
     <artifactId>ETS</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>ETS</name>
 
-    <!-- ── Global properties ────────────────────────────────────────────── -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.12.1</junit.version>
         <jacoco.version>0.8.12</jacoco.version>
     </properties>
 
-    <!-- ── Dependencies ─────────────────────────────────────────────────── -->
     <dependencies>
 
-        <!-- JavaFX UI controls (buttons, labels, tables, etc.) -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>21.0.6</version>
         </dependency>
 
-        <!-- JavaFX FXML support for loading .fxml layout files -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>21.0.6</version>
         </dependency>
 
-        <!-- JUnit 5 API — annotations and assertions used in test classes -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -42,7 +36,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- JUnit 5 Engine — runs the tests discovered by the Surefire plugin -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -50,7 +43,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- JUnit 5 Params — required for @ParameterizedTest, @CsvSource, etc. -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
@@ -58,7 +50,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Google GSON library -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -73,11 +64,9 @@
 
     </dependencies>
 
-    <!-- ── Build plugins ────────────────────────────────────────────────── -->
     <build>
         <plugins>
 
-            <!-- Compiler: targets Java 25 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -88,7 +77,6 @@
                 </configuration>
             </plugin>
 
-            <!-- JavaFX Maven plugin -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
@@ -109,39 +97,55 @@
                 </executions>
             </plugin>
 
-            <!-- Surefire 3.x — required for JUnit 5 test discovery -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
+                <configuration>
+                    <!-- Allows the build to continue past the one deliberately failing
+                         test required by the assignment (Section 4.2), so JaCoCo's
+                         report still gets generated on 'mvn clean verify'. -->
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
             </plugin>
 
             <!--
                 JaCoCo — measures line and branch coverage during test runs.
-                After running: .\mvnw test jacoco:report -Dmaven.test.failure.ignore=true
+                Run: mvn clean verify
                 Open: target/site/jacoco/index.html
+                Report is bound to the 'verify' phase so it always runs
+                strictly AFTER Surefire finishes executing all tests.
             -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.version}</version>
                 <executions>
-                    <!-- Attach the JaCoCo agent before tests run so it can instrument classes -->
                     <execution>
                         <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
-                    <!-- Generate the HTML report automatically after tests complete -->
                     <execution>
                         <id>report</id>
-                        <phase>test</phase>
+                        <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <!-- Excluded from coverage: Swing/JavaFX GUI classes are event-driven
+                         and rendering-bound, not unit-testable in the same way as business
+                         logic. Excluding them keeps the coverage % focused on services,
+                         repo, model, strategy, builder, api, controller — the layers that
+                         actually contain testable logic. Document this decision in
+                         Section 4.2 of the report. -->
+                    <excludes>
+                        <exclude>com/ets/gui/**</exclude>
+                    </excludes>
+                </configuration>
             </plugin>
 
         </plugins>
