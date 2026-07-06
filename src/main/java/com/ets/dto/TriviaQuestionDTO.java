@@ -1,8 +1,20 @@
 package com.ets.dto;
 
+import com.ets.api.TriviaApiService;
+import com.ets.model.Question;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+/**
+ * Data transfer object mapping a single question object in the Open
+ * Trivia Database API's JSON response.
+ * <p>
+ * Holds the raw API representation (category, type, difficulty,
+ * question text, correct answer, and incorrect answers) before
+ * conversion into the domain {@link Question} model by
+ * {@link TriviaApiService}. Snake_case JSON keys are bound via
+ * {@link com.google.gson.annotations.SerializedName}.
+ */
 
 public class TriviaQuestionDTO {
 

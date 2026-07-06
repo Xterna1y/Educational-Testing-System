@@ -12,7 +12,16 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * File-based repository that persists quiz questions as JSON on the
+ * local file system.
+ * <p>
+ * Acts as the offline cache/fallback source for
+ * {@link QuestionProvider}: questions fetched from the live API are
+ * saved here, and loaded back when the API is unavailable, allowing
+ * the application to degrade gracefully without a network connection.
+ * Serialization uses Gson with pretty printing.
+ */
 public class CachedQuestionRepository {
 
     private final Path filePath;

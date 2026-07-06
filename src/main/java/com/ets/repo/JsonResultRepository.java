@@ -12,6 +12,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * JSON file-based implementation of {@link ResultRepository}.
+ * <p>
+ * Persists quiz {@link Result} records to a single JSON file using
+ * Gson, and reads them back for the results-history feature. Results
+ * are appended on save and can be filtered by username on retrieval.
+ */
 
 public class JsonResultRepository
         implements ResultRepository {

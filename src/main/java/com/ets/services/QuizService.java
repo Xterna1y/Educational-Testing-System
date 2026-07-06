@@ -74,7 +74,8 @@ public final class QuizService {
         List<Answer> answers = new ArrayList<>();
         for (int i = 0; i < Math.min(questions.size(), selectedIndices.size()); i++) {
             Question q = questions.get(i);
-            answers.add(new Answer(q.getId(), selectedIndices.get(i)));
+            int selected = selectedIndices.get(i);
+            answers.add(new Answer(q.getId(), selected, q.getCategory(), q.isCorrect(selected)));
         }
         return Collections.unmodifiableList(new ArrayList<>(answers));
     }

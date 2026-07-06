@@ -59,7 +59,7 @@ public final class QuizController {
 
     public void submitAnswer(int selectedOption) {
         Question q = getCurrentQuestion();
-        currentAnswers.add(new Answer(q.getId(), selectedOption));
+        currentAnswers.add(new Answer(q.getId(), selectedOption, q.getCategory(), q.isCorrect(selectedOption)));
     }
 
     /**

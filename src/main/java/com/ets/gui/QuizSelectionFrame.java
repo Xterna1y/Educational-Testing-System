@@ -46,11 +46,18 @@ public class QuizSelectionFrame extends JFrame {
 
     public QuizSelectionFrame(String username) {
         this.username = username;
-        // TODO: replace this hardcoded path with whatever Main.java wires up
-        // (e.g. a shared Path/Constants.CACHE_FILE injected from outside).
+        // TODO: replace these hardcoded paths with whatever Main.java wires up
+        // (e.g. shared Path/Constants injected from outside).
+        //
+        // The cache (writable, overwritten by every successful live API call)
+        // and the seed (read-only, shipped with the app) must be different
+        // files — otherwise the first successful API call permanently
+        // destroys the curated fallback question bank.
         CachedQuestionRepository cacheRepository =
+                new CachedQuestionRepository(Path.of("cached_questions.json"));
+        CachedQuestionRepository seedRepository =
                 new CachedQuestionRepository(Path.of("src/main/resources/fallback_questions.json"));
-        this.questionProvider = new QuestionProvider(new TriviaApiService(), cacheRepository);
+        this.questionProvider = new QuestionProvider(new TriviaApiService(), cacheRepository, seedRepository);
         buildUI();
     }
 
@@ -198,7 +205,7 @@ public class QuizSelectionFrame extends JFrame {
         if (label == null) return new RandomStrategy();
         return switch (label) {
             case "Difficulty-Based" -> new DifficultyStrategy((Difficulty) difficultyCombo.getSelectedItem());
-            case "Weak Topics" -> new WeakTopicStrategy();
+            case "Weak Topics" -> new WeakTopicStrategy(username, resultRepository);
             default -> new RandomStrategy();
         };
     }

@@ -106,6 +106,16 @@ class TriviaApiServiceTest {
     // if QuestionProvider returned an empty list and the empty-check in
     // QuizSelectionFrame was removed. This test is left failing as documented
     // evidence of that gap.
+    //
+    // History: before TriviaApiClient.BASE_URL was fixed (it used to embed a
+    // stray "?amount=50" that collided with the "?amount=" appended in
+    // fetchQuestions(), producing a malformed double-"?" URL), this call
+    // silently ignored the requested amount and this assertion failed with
+    // "expected: <0> but was: <50>". Now that the URL is built correctly,
+    // the API honours the requested amount and this assertion fails with
+    // "expected: <0> but was: <5>" instead — proving the URL fix worked,
+    // while still deliberately failing to document the separate,
+    // still-unfixed minimum-count-enforcement gap described above.
     // ─────────────────────────────────────────────────────────────────────────
 
     @Test
@@ -117,7 +127,8 @@ class TriviaApiServiceTest {
             List<Question> questions = service.getQuestions(5, null, Difficulty.EASY);
 
             // This assertion is intentionally wrong.
-            // Expected behaviour: 5 questions are returned.
+            // Expected behaviour: 5 questions are returned (matching the
+            // requested amount, now that the BASE_URL bug is fixed).
             // This failing test reveals that there is no minimum-count guard
             // inside QuizController or QuizService — if getQuestions() ever
             // silently returned an empty list (e.g. due to a network failure

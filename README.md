@@ -36,19 +36,9 @@ personalised feedback.
 
 ## How to Run
 
-### Option 1 — Run the executable JAR (recommended)
-
-```bash
-java -jar ETS.jar
-```
-
-*(If your build produces a different filename, e.g. `ets-1.0.jar` in `target/`, use that exact name/path.)*
-
-### Option 2 — Build from source with Maven
-
 ```bash
 mvn clean package
-java -jar target/[your-jar-name].jar
+java -jar target/ETS-1.0-SNAPSHOT.jar
 ```
 
 ### Demo Accounts

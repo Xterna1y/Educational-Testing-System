@@ -11,6 +11,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
+/**
+ * High-level service that retrieves quiz questions from the Open
+ * Trivia Database API and converts them into domain {@link Question}
+ * objects.
+ * <p>
+ * Coordinates the full pipeline: fetch raw JSON via
+ * {@link TriviaApiClient}, deserialize it with Gson into
+ * {@link TriviaApiResponse}, validate it with
+ * {@link ApiResponseHandler}, and map each
+ * {@link TriviaQuestionDTO} to a {@link Question}. Any failure in
+ * this pipeline is wrapped in an unchecked exception so callers can
+ * apply a single fallback strategy.
+ */
 
 public class TriviaApiService {
 

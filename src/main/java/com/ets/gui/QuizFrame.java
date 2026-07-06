@@ -8,6 +8,7 @@ import com.ets.services.QuizService;
 import com.ets.strategy.QuizStrategy;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.CardLayout;
 import java.util.List;
@@ -74,7 +75,18 @@ public final class QuizFrame extends JFrame {
     }
 
     public void onNextClicked() {
-        controller.submitAnswer(questionPanel.getSelectedOption());
+        int selectedOption = questionPanel.getSelectedOption();
+        if (!isAnswerSelected(selectedOption)) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Please select an answer before continuing.",
+                    "No Answer Selected",
+                    JOptionPane.WARNING_MESSAGE
+            );
+            return;
+        }
+
+        controller.submitAnswer(selectedOption);
         if (controller.hasNextQuestion()) {
             controller.nextQuestion();
             questionPanel.refresh();
@@ -82,6 +94,16 @@ public final class QuizFrame extends JFrame {
             Result result = controller.finishQuiz();
             showResult(result);
         }
+    }
+
+    /**
+     * Returns whether {@code selectedOption} represents a real selection.
+     * {@link QuestionPanel#getSelectedOption()} returns {@code -1} when no
+     * radio button is currently selected. Package-private and stateless so
+     * it can be unit-tested directly without instantiating any Swing component.
+     */
+    static boolean isAnswerSelected(int selectedOption) {
+        return selectedOption >= 0;
     }
 
     public void onRestartClicked() {

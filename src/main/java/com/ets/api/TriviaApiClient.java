@@ -5,11 +5,19 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-
+/**
+ * Low-level HTTP client for the Open Trivia Database API
+ * (https://opentdb.com).
+ * <p>
+ * Responsible only for building the request URL from the given
+ * parameters and returning the raw JSON response body as a string.
+ * Parsing and validation are handled by {@link TriviaApiService}
+ * and {@link ApiResponseHandler} respectively.
+ */
 public class TriviaApiClient {
 
     private static final String BASE_URL =
-            "https://opentdb.com/api.php?amount=50";
+            "https://opentdb.com/api.php";
 
     private final HttpClient client;
 

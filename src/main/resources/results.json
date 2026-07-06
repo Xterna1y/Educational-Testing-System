@@ -5,43 +5,53 @@
     "answers": [
       {
         "questionId": "011bf014",
-        "selectedOptionIndex": 1
+        "selectedOptionIndex": 1,
+        "correct": false
       },
       {
         "questionId": "cc4ec10e",
-        "selectedOptionIndex": 3
+        "selectedOptionIndex": 3,
+        "correct": false
       },
       {
         "questionId": "181d31d9",
-        "selectedOptionIndex": 0
+        "selectedOptionIndex": 0,
+        "correct": false
       },
       {
         "questionId": "4139609f",
-        "selectedOptionIndex": 0
+        "selectedOptionIndex": 0,
+        "correct": false
       },
       {
         "questionId": "025404c7",
-        "selectedOptionIndex": 0
+        "selectedOptionIndex": 0,
+        "correct": false
       },
       {
         "questionId": "fcbc5de0",
-        "selectedOptionIndex": 0
+        "selectedOptionIndex": 0,
+        "correct": false
       },
       {
         "questionId": "dec2edbb",
-        "selectedOptionIndex": 3
+        "selectedOptionIndex": 3,
+        "correct": false
       },
       {
         "questionId": "d1616fa5",
-        "selectedOptionIndex": 2
+        "selectedOptionIndex": 2,
+        "correct": false
       },
       {
         "questionId": "7cc506ce",
-        "selectedOptionIndex": 3
+        "selectedOptionIndex": 3,
+        "correct": false
       },
       {
         "questionId": "4a407ecc",
-        "selectedOptionIndex": 0
+        "selectedOptionIndex": 0,
+        "correct": false
       }
     ],
     "score": 50,
@@ -54,43 +64,53 @@
     "answers": [
       {
         "questionId": "86650fc9",
-        "selectedOptionIndex": 2
+        "selectedOptionIndex": 2,
+        "correct": false
       },
       {
         "questionId": "cd889b54",
-        "selectedOptionIndex": 0
+        "selectedOptionIndex": 0,
+        "correct": false
       },
       {
         "questionId": "2db7ab55",
-        "selectedOptionIndex": 2
+        "selectedOptionIndex": 2,
+        "correct": false
       },
       {
         "questionId": "6b22af3e",
-        "selectedOptionIndex": 0
+        "selectedOptionIndex": 0,
+        "correct": false
       },
       {
         "questionId": "e9692e1b",
-        "selectedOptionIndex": 0
+        "selectedOptionIndex": 0,
+        "correct": false
       },
       {
         "questionId": "9aa9131e",
-        "selectedOptionIndex": 1
+        "selectedOptionIndex": 1,
+        "correct": false
       },
       {
         "questionId": "96ff5392",
-        "selectedOptionIndex": 1
+        "selectedOptionIndex": 1,
+        "correct": false
       },
       {
         "questionId": "e4e6c42e",
-        "selectedOptionIndex": 0
+        "selectedOptionIndex": 0,
+        "correct": false
       },
       {
         "questionId": "a346bc63",
-        "selectedOptionIndex": 2
+        "selectedOptionIndex": 2,
+        "correct": false
       },
       {
         "questionId": "e8d209a5",
-        "selectedOptionIndex": 2
+        "selectedOptionIndex": 2,
+        "correct": false
       }
     ],
     "score": 40,
@@ -103,47 +123,126 @@
     "answers": [
       {
         "questionId": "f9c36c21",
-        "selectedOptionIndex": 2
+        "selectedOptionIndex": 2,
+        "correct": false
       },
       {
         "questionId": "938f7484",
-        "selectedOptionIndex": 3
+        "selectedOptionIndex": 3,
+        "correct": false
       },
       {
         "questionId": "fb538cf1",
-        "selectedOptionIndex": 1
+        "selectedOptionIndex": 1,
+        "correct": false
       },
       {
         "questionId": "4dc206b1",
-        "selectedOptionIndex": 1
+        "selectedOptionIndex": 1,
+        "correct": false
       },
       {
         "questionId": "362e2ed4",
-        "selectedOptionIndex": 0
+        "selectedOptionIndex": 0,
+        "correct": false
       },
       {
         "questionId": "ab7e328b",
-        "selectedOptionIndex": 2
+        "selectedOptionIndex": 2,
+        "correct": false
       },
       {
         "questionId": "bf330179",
-        "selectedOptionIndex": 0
+        "selectedOptionIndex": 0,
+        "correct": false
       },
       {
         "questionId": "e68094c0",
-        "selectedOptionIndex": 2
+        "selectedOptionIndex": 2,
+        "correct": false
       },
       {
         "questionId": "26581f46",
-        "selectedOptionIndex": 2
+        "selectedOptionIndex": 2,
+        "correct": false
       },
       {
         "questionId": "335ab3ec",
-        "selectedOptionIndex": 1
+        "selectedOptionIndex": 1,
+        "correct": false
       }
     ],
     "score": 50,
     "totalPoints": 100,
     "completedAt": "2026-07-01T14:02:15.024904"
+  },
+  {
+    "username": "0381275",
+    "quizId": "34b7acdb",
+    "answers": [
+      {
+        "questionId": "abc7fc2b",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Cartoon \u0026 Animations",
+        "correct": true
+      },
+      {
+        "questionId": "566edcce",
+        "selectedOptionIndex": 2,
+        "category": "Entertainment: Film",
+        "correct": true
+      },
+      {
+        "questionId": "2e1af444",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Video Games",
+        "correct": false
+      },
+      {
+        "questionId": "f56014a8",
+        "selectedOptionIndex": 0,
+        "category": "Science \u0026 Nature",
+        "correct": false
+      },
+      {
+        "questionId": "94f438c4",
+        "selectedOptionIndex": 2,
+        "category": "General Knowledge",
+        "correct": true
+      },
+      {
+        "questionId": "180d241a",
+        "selectedOptionIndex": 1,
+        "category": "Geography",
+        "correct": false
+      },
+      {
+        "questionId": "b0a8fef9",
+        "selectedOptionIndex": 0,
+        "category": "Geography",
+        "correct": true
+      },
+      {
+        "questionId": "8e73507d",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Japanese Anime \u0026 Manga",
+        "correct": false
+      },
+      {
+        "questionId": "a3b38315",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Film",
+        "correct": true
+      },
+      {
+        "questionId": "c65f9a23",
+        "selectedOptionIndex": 0,
+        "category": "Geography",
+        "correct": true
+      }
+    ],
+    "score": 60,
+    "totalPoints": 100,
+    "completedAt": "2026-07-06T16:40:12.694151"
   }
 ]
