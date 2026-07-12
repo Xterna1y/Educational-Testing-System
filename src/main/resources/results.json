@@ -244,5 +244,143 @@
     "score": 60,
     "totalPoints": 100,
     "completedAt": "2026-07-06T16:40:12.694151"
+  },
+  {
+    "username": "muawiya",
+    "quizId": "62a00bb9",
+    "answers": [
+      {
+        "questionId": "ba462ab6",
+        "selectedOptionIndex": 0,
+        "category": "Entertainment: Music",
+        "correct": true
+      },
+      {
+        "questionId": "d6a32ea7",
+        "selectedOptionIndex": 3,
+        "category": "General Knowledge",
+        "correct": true
+      },
+      {
+        "questionId": "288ed4b1",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Video Games",
+        "correct": false
+      },
+      {
+        "questionId": "8e0c2ed1",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Video Games",
+        "correct": false
+      },
+      {
+        "questionId": "4ff8f1c9",
+        "selectedOptionIndex": 1,
+        "category": "Animals",
+        "correct": false
+      },
+      {
+        "questionId": "40e2b4d7",
+        "selectedOptionIndex": 3,
+        "category": "Entertainment: Television",
+        "correct": true
+      },
+      {
+        "questionId": "3b5c1685",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Board Games",
+        "correct": false
+      },
+      {
+        "questionId": "e346c037",
+        "selectedOptionIndex": 2,
+        "category": "Entertainment: Video Games",
+        "correct": true
+      },
+      {
+        "questionId": "01744e2f",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Film",
+        "correct": false
+      },
+      {
+        "questionId": "596c464a",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Video Games",
+        "correct": true
+      }
+    ],
+    "score": 50,
+    "totalPoints": 100,
+    "completedAt": "2026-07-06T16:46:42.601363"
+  },
+  {
+    "username": "muawiya",
+    "quizId": "1d969f62",
+    "answers": [
+      {
+        "questionId": "992b183f",
+        "selectedOptionIndex": 0,
+        "category": "Science \u0026 Nature",
+        "correct": false
+      },
+      {
+        "questionId": "e7f2211c",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Video Games",
+        "correct": false
+      },
+      {
+        "questionId": "510945c8",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Japanese Anime \u0026 Manga",
+        "correct": true
+      },
+      {
+        "questionId": "0b88cc4c",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Cartoon \u0026 Animations",
+        "correct": false
+      },
+      {
+        "questionId": "52fb138a",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Video Games",
+        "correct": false
+      },
+      {
+        "questionId": "b5f4d530",
+        "selectedOptionIndex": 1,
+        "category": "Sports",
+        "correct": true
+      },
+      {
+        "questionId": "6fcee4e8",
+        "selectedOptionIndex": 0,
+        "category": "Entertainment: Japanese Anime \u0026 Manga",
+        "correct": false
+      },
+      {
+        "questionId": "dd8f0286",
+        "selectedOptionIndex": 1,
+        "category": "Entertainment: Cartoon \u0026 Animations",
+        "correct": false
+      },
+      {
+        "questionId": "db3d5fb4",
+        "selectedOptionIndex": 2,
+        "category": "Science: Computers",
+        "correct": false
+      },
+      {
+        "questionId": "f90f5d4c",
+        "selectedOptionIndex": 2,
+        "category": "Entertainment: Music",
+        "correct": true
+      }
+    ],
+    "score": 30,
+    "totalPoints": 100,
+    "completedAt": "2026-07-08T12:01:53.364506"
   }
 ]

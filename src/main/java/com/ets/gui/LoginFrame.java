@@ -16,24 +16,24 @@ import java.io.IOException;
  * Student login screen for the Educational Testing System.
  *
  * <p>Presents a username field and two buttons — <em>Login</em> and
- * <em>Register</em> — for STUDENT accounts only. An "Admin Portal" link
- * at the bottom opens {@link AdminLoginFrame} for administrator access.</p>
+ * <em>Register</em>. Authentication is delegated to the
+ * {@link LoginController}; this class contains no business logic.</p>
  */
 public class LoginFrame extends JFrame {
 
-    // ── Colours (package-visible so AdminLoginFrame can reuse them) ─────────
-    static final Color BG_DARK       = Color.BLACK;
-    static final Color CARD_BG       = Color.DARK_GRAY;
-    static final Color TEXT_PRIMARY  = Color.WHITE;
-    static final Color TEXT_MUTED    = Color.LIGHT_GRAY;
-    static final Color FIELD_BG      = Color.DARK_GRAY;
-    static final Color FIELD_BORDER  = Color.GRAY;
-    static final Color ERROR_COLOR   = Color.RED;
-    static final Color SUCCESS_COLOR = Color.GREEN;
+    // ── Colours ─────────────────────────────────────────────────────────────
+    private static final Color BG_DARK       = Color.BLACK;
+    private static final Color CARD_BG       = Color.DARK_GRAY;
+    private static final Color TEXT_PRIMARY  = Color.WHITE;
+    private static final Color TEXT_MUTED    = Color.LIGHT_GRAY;
+    private static final Color FIELD_BG      = Color.DARK_GRAY;
+    private static final Color FIELD_BORDER  = Color.GRAY;
+    private static final Color ERROR_COLOR   = Color.RED;
+    private static final Color SUCCESS_COLOR = Color.GREEN;
 
-    private static final Color ACCENT        = Color.BLUE;    // similar to Indigo
+    private static final Color ACCENT        = Color.BLUE;
     private static final Color ACCENT_HOVER  = Color.BLUE;
-    private static final Color ACCENT2       = Color.GREEN;   // similar to Emerald
+    private static final Color ACCENT2       = Color.GREEN;
     private static final Color ACCENT2_HOVER = Color.GREEN;
 
     // ── UI components ──────────────────────────────────────────────────────
@@ -103,9 +103,6 @@ public class LoginFrame extends JFrame {
         // ── Main buttons
         JPanel buttonRow = buildButtonRow();
 
-        // ── Admin portal link
-        JLabel adminLink = buildAdminLink();
-
         // ── Assembly
         card.add(icon);
         card.add(Box.createVerticalStrut(12));
@@ -118,10 +115,6 @@ public class LoginFrame extends JFrame {
         card.add(statusLabel);
         card.add(Box.createVerticalStrut(12));
         card.add(buttonRow);
-        card.add(Box.createVerticalStrut(24));
-        card.add(buildDivider());
-        card.add(Box.createVerticalStrut(16));
-        card.add(adminLink);
 
         return card;
     }
@@ -183,48 +176,8 @@ public class LoginFrame extends JFrame {
         return row;
     }
 
-    /** Thin horizontal rule separating the main actions from the admin link. */
-    private JPanel buildDivider() {
-        JPanel line = new JPanel() {
-            @Override protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                g.setColor(FIELD_BORDER);
-                g.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2);
-            }
-        };
-        line.setBackground(CARD_BG);
-        line.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
-        line.setAlignmentX(Component.CENTER_ALIGNMENT);
-        return line;
-    }
-
-    /** Clickable "Admin Portal →" label that opens the Admin login screen. */
-    private JLabel buildAdminLink() {
-        JLabel link = new JLabel("Admin Portal  →", SwingConstants.CENTER);
-        link.setFont(new Font("Segue UI", Font.PLAIN, 12));
-        link.setForeground(TEXT_MUTED);
-        link.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        link.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        link.addMouseListener(new MouseAdapter() {
-            @Override public void mouseEntered(MouseEvent e) {
-                link.setForeground(new Color(245, 158, 11)); // amber on hover
-            }
-            @Override public void mouseExited(MouseEvent e) {
-                link.setForeground(TEXT_MUTED);
-            }
-            @Override public void mouseClicked(MouseEvent e) {
-                openAdminLogin();
-            }
-        });
-        return link;
-    }
-
-    /**
-     * Builds a rounded, coloured action button.
-     * Package-visible so {@link AdminLoginFrame} can reuse the same style.
-     */
-    static JButton buildStyledButton(String text, Color base, Color hover) {
+    /** Builds a rounded, coloured action button. */
+    private static JButton buildStyledButton(String text, Color base, Color hover) {
         JButton btn = new JButton(text) {
             @Override
             protected void paintComponent(Graphics g) {
@@ -263,7 +216,7 @@ public class LoginFrame extends JFrame {
 
         SwingWorker<User, Void> worker = new SwingWorker<User, Void>() {
             @Override protected User doInBackground() {
-                return controller.login(username, "STUDENT");
+                return controller.login(username);
             }
             @Override protected void done() {
                 setBothButtonsEnabled(true, "Login", "Register");
@@ -296,7 +249,7 @@ public class LoginFrame extends JFrame {
 
         SwingWorker<User, Void> worker = new SwingWorker<User, Void>() {
             @Override protected User doInBackground() throws IOException {
-                return controller.register(username, "STUDENT");
+                return controller.register(username);
             }
             @Override protected void done() {
                 setBothButtonsEnabled(true, "Login", "Register");
@@ -319,15 +272,6 @@ public class LoginFrame extends JFrame {
     }
 
     // ── Navigation ────────────────────────────────────────────────────────
-
-    /** Switches to the Admin login screen, closing this frame. */
-    private void openAdminLogin() {
-        SwingUtilities.invokeLater(() -> {
-            AdminLoginFrame adminLogin = new AdminLoginFrame(controller);
-            adminLogin.setVisible(true);
-            LoginFrame.this.dispose();
-        });
-    }
 
     private void openDashboard(User user) {
         SwingUtilities.invokeLater(() -> {

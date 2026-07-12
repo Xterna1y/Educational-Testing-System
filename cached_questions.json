@@ -1,126 +1,130 @@
 [
   {
-    "id": "566edcce",
-    "category": "Entertainment: Film",
-    "text": "Which one of these actors is said to be cut from the film \u0027E.T. the Extra-Terrestrial\u0027?",
-    "options": [
-      "Andy Kaufman",
-      "Michael J. Fox",
-      "Harrison Ford",
-      "Arnold Schwarzenegger"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "MEDIUM"
-  },
-  {
-    "id": "f56014a8",
-    "category": "Science \u0026 Nature",
-    "text": "What is Hypernatremia?",
-    "options": [
-      "Decrease in blood potassium",
-      "Increase in blood sodium",
-      "Increase in blood glucose",
-      "Decrease in blood iron"
-    ],
-    "correctOptionIndex": 1,
-    "difficulty": "MEDIUM"
-  },
-  {
-    "id": "180d241a",
-    "category": "Geography",
-    "text": "How many counties in the Republic of Ireland.",
-    "options": [
-      "32",
-      "28",
-      "26",
-      "30"
-    ],
-    "correctOptionIndex": 2,
-    "difficulty": "MEDIUM"
-  },
-  {
-    "id": "8e73507d",
-    "category": "Entertainment: Japanese Anime \u0026 Manga",
-    "text": "In \"JoJo\u0027s Bizarre Adventure\", Father Enrico Pucchi uses a total of 3 stands in Part 6: Stone Ocean.",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctOptionIndex": 0,
-    "difficulty": "MEDIUM"
-  },
-  {
-    "id": "2e1af444",
+    "id": "52fb138a",
     "category": "Entertainment: Video Games",
-    "text": "In Minecraft, how many items can a single piece of coal smelt when used in a furnace?",
+    "text": "What is the name of the largest planet in Kerbal Space Program?",
+    "options": [
+      "Kerbol",
+      "Minmus",
+      "Jool",
+      "Eeloo"
+    ],
+    "correctOptionIndex": 2,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "0b88cc4c",
+    "category": "Entertainment: Cartoon \u0026 Animations",
+    "text": "In South Park, what is Stan\u0027s surname?",
+    "options": [
+      "Tweak",
+      "Broflovski",
+      "Marsh",
+      "Stotch"
+    ],
+    "correctOptionIndex": 2,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "6fcee4e8",
+    "category": "Entertainment: Japanese Anime \u0026 Manga",
+    "text": "What is the age of Ash Ketchum in Pokemon when he starts his journey?",
     "options": [
       "12",
-      "6",
       "10",
-      "8"
+      "11",
+      "9"
     ],
-    "correctOptionIndex": 3,
-    "difficulty": "MEDIUM"
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
   },
   {
-    "id": "94f438c4",
-    "category": "General Knowledge",
-    "text": "What is the name of the very first video uploaded to YouTube?",
+    "id": "510945c8",
+    "category": "Entertainment: Japanese Anime \u0026 Manga",
+    "text": "In 2013, virtual pop-star Hatsune Miku had a sponsorship with which pizza chain?",
     "options": [
-      "tribute",
-      "carrie rides a truck",
-      "Me at the zoo",
-      "Her new puppy from great grandpa vern."
+      "Pizza Hut",
+      "Domino\u0026#039;s",
+      "Papa John\u0026#039;s",
+      "Sabarro\u0026#039;s"
+    ],
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "e7f2211c",
+    "category": "Entertainment: Video Games",
+    "text": "In World of Warcraft, What was the original level cap?",
+    "options": [
+      "60",
+      "50",
+      "100",
+      "70"
+    ],
+    "correctOptionIndex": 0,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "f90f5d4c",
+    "category": "Entertainment: Music",
+    "text": "Which brass instrument has the lowest pitch in an orchestra?",
+    "options": [
+      "Trombone",
+      "Saxophone",
+      "Tuba",
+      "Trumpet"
     ],
     "correctOptionIndex": 2,
-    "difficulty": "MEDIUM"
+    "difficulty": "EASY"
   },
   {
-    "id": "abc7fc2b",
+    "id": "992b183f",
+    "category": "Science \u0026 Nature",
+    "text": "Water always boils at 100°C, 212°F, 373.15K, no matter where you are.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "db3d5fb4",
+    "category": "Science: Computers",
+    "text": "On a standard American QWERTY keyboard, what symbol will you enter if you hold the shift key and press 1?",
+    "options": [
+      "Percent Sign",
+      "Asterisk",
+      "Dollar Sign",
+      "Exclamation Mark"
+    ],
+    "correctOptionIndex": 3,
+    "difficulty": "EASY"
+  },
+  {
+    "id": "dd8f0286",
     "category": "Entertainment: Cartoon \u0026 Animations",
-    "text": "What year was the Disney film \"A Goofy Movie\" released?",
+    "text": "Which Teenage Mutant Ninja Turtle traditionally wears an orange bandana?",
     "options": [
-      "1999",
-      "1995",
-      "2001",
-      "1997"
-    ],
-    "correctOptionIndex": 1,
-    "difficulty": "MEDIUM"
-  },
-  {
-    "id": "a3b38315",
-    "category": "Entertainment: Film",
-    "text": "The color of the pills in the Matrix were Blue and Yellow.",
-    "options": [
-      "True",
-      "False"
-    ],
-    "correctOptionIndex": 1,
-    "difficulty": "MEDIUM"
-  },
-  {
-    "id": "c65f9a23",
-    "category": "Geography",
-    "text": "The surface area of Russia is slightly larger than that of the dwarf planet Pluto.",
-    "options": [
-      "True",
-      "False"
+      "Michelangelo",
+      "Leonardo",
+      "Donatello",
+      "Raphael"
     ],
     "correctOptionIndex": 0,
-    "difficulty": "MEDIUM"
+    "difficulty": "EASY"
   },
   {
-    "id": "b0a8fef9",
-    "category": "Geography",
-    "text": "Which islands below have been claimed by both Japan and Russia?",
+    "id": "b5f4d530",
+    "category": "Sports",
+    "text": "Which country produced football players such as Cafu, Roberto Carlos and Pelé?",
     "options": [
-      "Kuril Islands",
-      "Paracel Islands",
-      "Spratly Islands",
-      "Chagos Islands"
+      "Portugal",
+      "Brazil",
+      "Spain",
+      "Argentina"
     ],
-    "correctOptionIndex": 0,
-    "difficulty": "MEDIUM"
+    "correctOptionIndex": 1,
+    "difficulty": "EASY"
   }
 ]

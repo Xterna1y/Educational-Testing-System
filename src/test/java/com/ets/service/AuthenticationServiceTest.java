@@ -37,17 +37,15 @@ class AuthenticationServiceTest {
     /** Initial JSON content seeded before each test. */
     private static final String SEED_JSON =
             "[\n" +
-            "  {\n" +
-            "    \"username\": \"student01\",\n" +
-            "    \"password\": \"\",\n" +
-            "    \"role\": \"STUDENT\"\n" +
-            "  },\n" +
-            "  {\n" +
-            "    \"username\": \"admin01\",\n" +
-            "    \"password\": \"\",\n" +
-            "    \"role\": \"ADMIN\"\n" +
-            "  }\n" +
-            "]";
+                    "  {\n" +
+                    "    \"username\": \"student01\",\n" +
+                    "    \"role\": \"STUDENT\"\n" +
+                    "  },\n" +
+                    "  {\n" +
+                    "    \"username\": \"student02\",\n" +
+                    "    \"role\": \"STUDENT\"\n" +
+                    "  }\n" +
+                    "]";
 
     @BeforeEach
     void setUp() throws IOException {
@@ -64,7 +62,7 @@ class AuthenticationServiceTest {
     @Test
     @DisplayName("Login: existing username returns the correct User")
     void login_existingUsername_returnsUser() {
-        User user = authService.authenticate("student01", "STUDENT");
+        User user = authService.authenticate("student01");
 
         assertNotNull(user, "User should be found for a valid username");
         assertEquals("student01", user.getUsername());
@@ -78,7 +76,7 @@ class AuthenticationServiceTest {
     @Test
     @DisplayName("Login: unknown username returns null")
     void login_unknownUsername_returnsNull() {
-        User user = authService.authenticate("ghost_user", "STUDENT");
+        User user = authService.authenticate("ghost_user");
 
         assertNull(user, "Unknown username should return null");
     }
@@ -90,7 +88,7 @@ class AuthenticationServiceTest {
     @Test
     @DisplayName("Register: duplicate username returns null")
     void register_duplicateUsername_returnsNull() throws IOException {
-        User result = authService.registerUser("student01", "STUDENT");   // already exists
+        User result = authService.registerUser("student01");   // already exists
 
         assertNull(result, "Registering a duplicate username should return null");
     }
@@ -103,9 +101,9 @@ class AuthenticationServiceTest {
     @DisplayName("Login: empty username returns null")
     void login_emptyUsername_returnsNull() {
         // AuthenticationService trims and rejects blank input before hitting the repo
-        assertNull(authService.authenticate("", "STUDENT"),
+        assertNull(authService.authenticate(""),
                 "Empty username should return null");
-        assertNull(authService.authenticate("   ", "STUDENT"),
+        assertNull(authService.authenticate("   "),
                 "Blank username (spaces only) should return null");
     }
 
@@ -117,9 +115,9 @@ class AuthenticationServiceTest {
     @DisplayName("Register: empty username returns null")
     void register_emptyUsername_returnsNull() throws IOException {
         // AuthenticationService guards blank input and returns null immediately
-        assertNull(authService.registerUser("", "STUDENT"),
+        assertNull(authService.registerUser(""),
                 "Registering an empty username should return null");
-        assertNull(authService.registerUser("   ", "STUDENT"),
+        assertNull(authService.registerUser("   "),
                 "Registering a blank (spaces-only) username should return null");
     }
 
@@ -130,14 +128,14 @@ class AuthenticationServiceTest {
     @Test
     @DisplayName("Register: new username is created and can be logged in afterwards")
     void register_newUsername_canLoginAfterwards() throws IOException {
-        User created = authService.registerUser("newStudent", "STUDENT");
+        User created = authService.registerUser("newStudent");
 
         assertNotNull(created, "A brand-new username should be created successfully");
         assertEquals("newStudent", created.getUsername());
         assertEquals("STUDENT",    created.getRole());
 
         // The same service instance should now authenticate the new user
-        User found = authService.authenticate("newStudent", "STUDENT");
+        User found = authService.authenticate("newStudent");
         assertNotNull(found, "Newly registered user must be authenticatable in the same session");
     }
 
@@ -148,13 +146,13 @@ class AuthenticationServiceTest {
     @Test
     @DisplayName("Register: persisted user can be authenticated by a fresh service instance")
     void register_persistsToDisk_freshServiceCanAuthenticate() throws IOException {
-        authService.registerUser("persistedUser", "STUDENT");
+        authService.registerUser("persistedUser");
 
         // Build a completely new service backed by a fresh repo reading the same temp file
         AuthenticationService freshService =
                 new AuthenticationService(new UserRepository(tempJson));
 
-        User found = freshService.authenticate("persistedUser", "STUDENT");
+        User found = freshService.authenticate("persistedUser");
         assertNotNull(found, "Registered user must survive a service restart (persist to disk)");
     }
 
@@ -165,9 +163,9 @@ class AuthenticationServiceTest {
     @Test
     @DisplayName("Login: authentication is case-insensitive")
     void login_caseInsensitive() {
-        assertNotNull(authService.authenticate("STUDENT01", "STUDENT"), "Upper-case lookup should succeed");
-        assertNotNull(authService.authenticate("Student01", "STUDENT"), "Mixed-case lookup should succeed");
-        assertNotNull(authService.authenticate("student01", "STUDENT"), "Lower-case lookup should succeed");
+        assertNotNull(authService.authenticate("STUDENT01"), "Upper-case lookup should succeed");
+        assertNotNull(authService.authenticate("Student01"), "Mixed-case lookup should succeed");
+        assertNotNull(authService.authenticate("student01"), "Lower-case lookup should succeed");
     }
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -177,9 +175,9 @@ class AuthenticationServiceTest {
     @Test
     @DisplayName("Register: duplicate detection is case-insensitive")
     void register_duplicateCaseInsensitive_returnsNull() throws IOException {
-        assertNull(authService.registerUser("STUDENT01", "STUDENT"),
+        assertNull(authService.registerUser("STUDENT01"),
                 "Upper-case variant of existing username should be treated as duplicate");
-        assertNull(authService.registerUser("Admin01", "ADMIN"),
+        assertNull(authService.registerUser("Student02"),
                 "Mixed-case variant of existing username should be treated as duplicate");
     }
 }

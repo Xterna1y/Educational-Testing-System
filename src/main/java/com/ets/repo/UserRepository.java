@@ -1,6 +1,5 @@
 package com.ets.repo;
 
-import com.ets.model.Admin;
 import com.ets.model.Student;
 import com.ets.model.User;
 
@@ -109,7 +108,7 @@ public class UserRepository {
 
     /**
      * Minimal JSON array parser — handles the flat structure in users.json.
-     * Expects: [{"username":"...","password":"...","role":"..."},...]
+     * Expects: [{"username":"...","role":"..."},...]
      */
     private void parseUsersJson(String json) {
         // Remove outer brackets and split by object boundaries
@@ -122,15 +121,9 @@ public class UserRepository {
         for (String obj : objects) {
             obj = obj.replace("{", "").replace("}", "").trim();
             String username = extractField(obj, "username");
-            String password = extractField(obj, "password");
-            String role     = extractField(obj, "role");
 
-            if (username != null && password != null && role != null) {
-                if ("ADMIN".equalsIgnoreCase(role)) {
-                    users.add(new Admin(username, password, role));
-                } else {
-                    users.add(new Student(username, password, role));
-                }
+            if (username != null) {
+                users.add(new Student(username));
             }
         }
     }
@@ -169,31 +162,17 @@ public class UserRepository {
     }
 
     /**
-     * Registers a new STUDENT user (convenience overload).
+     * Registers a new STUDENT user and persists the updated list to users.json.
      *
      * @param username desired username
      * @return the newly created {@link Student}, or {@code null} if the username is already taken
      * @throws IOException if the file cannot be written
      */
     public User registerUser(String username) throws IOException {
-        return registerUser(username, "STUDENT");
-    }
-
-    /**
-     * Registers a new user with the given role and persists the updated list to users.json.
-     *
-     * @param username desired username
-     * @param role     role to assign — {@code "STUDENT"} or {@code "ADMIN"}
-     * @return the newly created {@link User}, or {@code null} if the username is already taken
-     * @throws IOException if the file cannot be written
-     */
-    public User registerUser(String username, String role) throws IOException {
         if (findByUsername(username) != null) {
             return null; // duplicate
         }
-        User newUser = "ADMIN".equalsIgnoreCase(role)
-                ? new Admin(username, "", "ADMIN")
-                : new Student(username, "", "STUDENT");
+        User newUser = new Student(username);
         users.add(newUser);
         persistUsers();
         return newUser;
@@ -208,7 +187,6 @@ public class UserRepository {
             User u = users.get(i);
             sb.append("  {\n");
             sb.append("    \"username\": \"").append(escape(u.getUsername())).append("\",\n");
-            sb.append("    \"password\": \"").append(escape(u.getPassword())).append("\",\n");
             sb.append("    \"role\": \"").append(escape(u.getRole())).append("\"\n");
             sb.append("  }");
             if (i < users.size() - 1) sb.append(",");

@@ -36,17 +36,15 @@ class UserRepositoryTest {
     /** Initial JSON content seeded before each test. */
     private static final String SEED_JSON =
             "[\n" +
-            "  {\n" +
-            "    \"username\": \"student01\",\n" +
-            "    \"password\": \"\",\n" +
-            "    \"role\": \"STUDENT\"\n" +
-            "  },\n" +
-            "  {\n" +
-            "    \"username\": \"admin01\",\n" +
-            "    \"password\": \"\",\n" +
-            "    \"role\": \"ADMIN\"\n" +
-            "  }\n" +
-            "]";
+                    "  {\n" +
+                    "    \"username\": \"student01\",\n" +
+                    "    \"role\": \"STUDENT\"\n" +
+                    "  },\n" +
+                    "  {\n" +
+                    "    \"username\": \"student02\",\n" +
+                    "    \"role\": \"STUDENT\"\n" +
+                    "  }\n" +
+                    "]";
 
     @BeforeEach
     void setUp() throws IOException {
@@ -150,7 +148,7 @@ class UserRepositoryTest {
 
         assertNull(repo.registerUser("STUDENT01"),
                 "Upper-case variant of existing username should be treated as duplicate");
-        assertNull(repo.registerUser("Admin01"),
+        assertNull(repo.registerUser("Student02"),
                 "Mixed-case variant of existing username should be treated as duplicate");
     }
 
